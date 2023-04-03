@@ -11,7 +11,7 @@
 \usepackage{caption}
 
 % Judul dokumen
-\title{Proposal Tugas Akhir ITS}
+\title{Buku Tugas Akhir ITS}
 \author{Fajri, Dimas Aditya Maulana}
 
 % Pengaturan detail pada file PDF
@@ -106,9 +106,19 @@
   % Atur ulang penomoran halaman
   \setcounter{page}{1}
 
-  % Sampul Bahasa Indonesia
+  % Sampul Luar Bahasa Indonesia
   \newcommand\covercontents{sampul/konten-id.tex}
   \input{sampul/sampul-luar.tex}
+  \cleardoublepage
+
+  % Sampul Dalam Bahasa Indonesia
+  \renewcommand\covercontents{sampul/konten-id.tex}
+  \input{sampul/sampul-dalam.tex}
+  \cleardoublepage
+
+  % Sampul Dalam Bahasa Inggris
+  \renewcommand\covercontents{sampul/konten-en.tex}
+  \input{sampul/sampul-dalam.tex}
 
   % Lembar pengesahan
   \input{lainnya/lembar-pengesahan.tex}
