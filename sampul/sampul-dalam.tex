@@ -1,11 +1,11 @@
 \AddToShipoutPictureBG*{
   \AtPageLowerLeft{
     % Ubah nilai berikut jika posisi horizontal background tidak sesuai
-    \hspace{-3.25mm}
+    \hspace{-3.5mm}
 
     % Ubah nilai berikut jika posisi vertikal background tidak sesuai
     \raisebox{0mm}{
-      \includegraphics[width=\paperwidth,height=\paperheight]{sampul/gambar/sampul-luar-tipis.png}
+      \includegraphics[width=\paperwidth,height=\paperheight]{sampul/gambar/sampul-dalam.png}
     }
   }
 }
@@ -15,10 +15,10 @@
 
 % Pengaturan margin untuk menyesuaikan konten sampul
 \newgeometry{
-  top=65mm,
-  left=30mm,
-  right=30mm,
-  bottom=20mm
+  top=95mm,
+  left=25mm,
+  right=20mm,
+  bottom=25mm
 }
 
 \begin{flushleft}
@@ -29,9 +29,8 @@
   % Pemilihan font bold
   \fontseries{bx}
   \selectfont
-  \begin{spacing}{1.5}
-    \input{\covercontents}
-  \end{spacing}
+
+  \input{\covercontents}
 
 \end{flushleft}
 
