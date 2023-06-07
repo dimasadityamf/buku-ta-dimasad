@@ -5,17 +5,14 @@ Penelitian ini dilaksanakan sesuai sistem berikut dengan implementasinya. Desain
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.215]{gambar/blok diagram metodologi3.png}
+  \includegraphics[scale=0.215]{gambar/blok diagram metodologi4.png}
   \caption{Blok Diagram Kerja Sistem}
   \label{fig:BlokDiagram}
 \end{figure}
 
-\section{Desain Sistem}
-\label{sec:DesainSistem}
-
 Penelitian ini dilaksanakan sesuai \lipsum[1][1-5]
 
-\section{Pengambilan Data}
+\section{Data Video}
 \label{sec:PengambilanData}
 
 Pada tahap pertama yaitu pengambilan data, data diperoleh menggunakan kamera pada \emph{smartphone} yang akan direkam dan disimpan untuk kemudian akan digunakan pada proses yang dilakukan pada perangkat komputer/laptop atau dapat menggunakan kamera yang dimiliki oleh laptop atau kamera eksternal yang dihubungkan pada laptop ataupun komputer. Proses pengambilan data dilakukan dengan peraga melakukan aktivitas pada treadmill dengan ditampakkan secara jelas pada tampilan kamera. Setelah terdapat peraga dan tampak jelas pada tampilan maka data citra akan dilakukan pada tahap selanjutnya untuk dideteksi dan segmentasi pose seperti pada Gambar \ref{fig:PengambilanData}.
@@ -28,7 +25,7 @@ Pada tahap pertama yaitu pengambilan data, data diperoleh menggunakan kamera pad
 \end{figure}
 
 
-\section{Deteksi Pose}
+\section{Estimasi Pose}
 \label{sec:DeteksiPose}
 
 Deteksi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan \emph{Python} dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan deteksi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas jogging pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan deteksi pose. Deteksi pose menggunakan model deteksi yang sudah ada yaitu Mediapipe. Hasil deteksi dari model Mediapipe berupa kerangka yang menyesuaikan bentuk tubuh yang dideteksi dari data video yang dimiliki. Dalam penelitian ini yang berfokuskan pada proses deteksi langkah pada tubuh bagian bawah seperti kaki menyebabkan perlunya pemodelan ulang dan melakukan proses modifikasi pada hasil deteksi model Mediapipe. Dengan begitu proses modifikasi yang dilakukan adalah dengan mengambil kerangka bagian kaki dengan memberikan warna yang berbeda untuk hasil deteksi kaki bagian kiri dan kanan. Proses deteksi pose pada kaki yang dilakukan akan digunakan dalam proses selanjutnya dalam penelitian ini yang digambarkan pada gambar yang terdapat pada Gambar \ref{fig:DeteksiEstimasi}.
@@ -106,7 +103,7 @@ Dataset yang digunakan pada penelitian ini berdasarkan hasil dari data video yan
 \end{figure}
 
 
-\section{Model}
+\section{Klasifikasi Langkah}
 \label{sec:Klasifikasi}
 
 Dataset yang telah dimiliki maka kemudian dilakukan \emph{training} untuk memperoleh model deteksi. Model deteksi dari dataset akan digunakan untuk melatih model dari sebuah algoritma pada \emph{Machine Learning}. Dalam melakukan klasifikasi menggunakan \emph{Convolutional Neural Networks} (CNN). Proses \emph{training} ini bertujuan agar nantinya komputasi yang dilakukan dalam proses deteksi akan dapat diolah berdasarkan akuisisi data citra yang ingin dideteksi menjadi bentuk atau pola pemahaman yang diinginkan. Hasil \emph{training} akan didapatkan model yang digunakan untuk melakukan klasifikasi atas dataset yang dimiliki yaitu terdapat dua kelas atau label untuk dapat diklasifikasikan menjadi kaki kanan dan kiri. Klasifikasi dalam menentukan aktivitas yang digunakan pada penelitian ini adalah dapat mengetahu langkah dari seseorang yang berjalan atau berlari. Hasil klasifikasi dari model yang telah dibuat untuk menentukan hasil deteksi untuk kelas kanan ditunjukkan pada Gambar \ref{fig:KlasifikasiKanan} dan hasil deteksi untuk kelas kiri ditunjukkan pada Gambar \ref{fig:KlasifikasiKiri}.
@@ -126,8 +123,8 @@ Dataset yang telah dimiliki maka kemudian dilakukan \emph{training} untuk memper
 \end{figure}
 
 
-\section{Hasil Deteksi}
-\label{sec:HasilDeteksi}
+\subsection{Hasil Deteksi}
+\label{subsec:HasilDeteksi}
 
 Bentuk hasil klasifikasi yang dibuat adalah mendeteksi pose aktivitas dengan dapat menghitung langkah dan waktu yang ditempuh. Nilai langkah dan waktu yang ditempuh akan digunakan dalam perhitungan selanjutnya. Banyaknya jumlah langkah yang didapat saat hasil deteksi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi dan dihitung seberapa banyak langkah yang dilakukan saat proses deteksi. Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan digunakan dalam penentuan perhitungan kalori. Waktu tempuh dimulai saat dideteksi pertama kali nilai langkah yang ditemukan hingga saat akhir langkah tidak ada penambahan kembali yang menandakan proses deteksi telah selesai. Hasil deteksi akan ditampilkan seiring dengan proses deteksi yang dilakukan pada data citra seperti pada Gambar \ref{fig:HasilDeteksi} dan pada akhir proses deteksi akan menampilkan hasil akumulasi akhir dari hasil deteksi terhadap deteksi langkah dan waktu tempuh. Selain itu juga terdapat tampilan hasil perhitungan dan prediksi yang diharapkan dalam penelitian ini. Hasil tampilan untuk hasil deteksi di akhir sebagai akumulasi deteksi ditunjukkan pada Gambar \ref{fig:HasilDeteksi2}.
 
@@ -148,12 +145,12 @@ Bentuk hasil klasifikasi yang dibuat adalah mendeteksi pose aktivitas dengan dap
 \subsection{Hasil Deteksi Langkah}
 \label{subsec:HasilLangkah}
 
-Banyaknya jumlah langkah yang didapat saat hasil deteksi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi dan dihitung seberapa banyak langkah yang dilakukan saat proses deteksi. Nilai banyaknya jumlah langkah akan disimpan dan akan digunakan pada saat proses perhitungan kalori setelah proses deteksi telah selesai dilakukan.
+Banyaknya jumlah langkah yang didapat saat hasil deteksi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi dan dihitung seberapa banyak langkah yang dilakukan saat proses deteksi. Dalam proses deteksi menggunakan model yang sudah dibuat mendapatkan hasil deteksi sesuai kelas yang digunakan yaitu kanan dan kiri. Saat sistem berhasil mendeteksi langkah berdasarkan model langkah kanan dan kiri akan melakukan akumulasi perhitungan langkah dengan menjumlahkan banyak hasil deteksi saat mengalami perubahan hasil deteksi. Dengan adanya perubahan hasil deteksi dari kelas kanan menjadi kiri ataupun sebaliknya, maka sistem akan melakukan penjumlahan pada variabel jumlah langkah berdasarkan hasil deteksi yaitu langkah dengan menggunakan deteksi langkah dari model yang telah dibuat. Saat dideteksinya awal langkah dan perubahan langkah yang mengakibatkan bertambahnya jumlah akumulasi langkah yang dideteksi akan membuat sistem berjalan dan membuat waktu tempuh dimulai berdasarkan hasil langkah awal yang dapat dideteksi. Proses deteksi langkah akan dimulai dengan dimulainya akuisisi data maupun berdasarkan dari data citra dataset dan diakhiri dengan akhir dari deteksi langkah yang tidak mengalami pertambahan dalam kurung waktu tertentu. Hasil akumulasi jumlah langkah akan disimpan dan dilakukan proses selanjutnya dalam menentukan prediksi dan perhitungan kalori.
 
 \subsection{Hasil Waktu Tempuh}
 \label{subsec:HasilWaktu}
 
-Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan digunakan dalam penentuan perhitungan kalori. Waktu tempuh dimulai saat dideteksi pertama kali nilai langkah yang ditemukan hingga saat akhir langkah tidak ada penambahan kembali yang menandakan proses deteksi telah selesai. Nilai waktu akan dibutuhkan dalam satuan waktu menit untuk proses perhitungan kalori.
+Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan digunakan dalam penentuan perhitungan kalori. Waktu tempuh dimulai saat dideteksi pertama kali nilai langkah yang ditemukan hingga saat akhir langkah tidak ada penambahan kembali yang menandakan proses deteksi telah selesai. Nilai waktu yang akan digunakan selanjutnya merupakan nilai waktu dalam bentuk satuan detik hasil dari akumulasi keseluruhan dalam proses deteksi. Pada tampilan hasil deteksi waktu tempuh ditampilkan dalam keseluruhan satuan waktu berupa jam, menit dan detik yang dapat dilakukan akumulasi berdasarkan proses melakukan deteksi dari hasil akuisisi data maupun berdasarkan dari data citra dataset. Hasil akumulasi dari satuan detik yang didapat akan disimpan dan dilakukan pada proses selanjutnya dalam menentukan prediksi dan perhitungan kalori.
 
 \section{Prediksi Kalori}
 \label{sec:PrediksiKalori}
@@ -162,6 +159,94 @@ Prediksi kalori dilakukn dengan dua metode, yaitu menggunakan metode regresi lin
 
 \subsection{Regresi Linear}
 \label{subsec:PrediksiRegresi}
+
+Prediksi kalori dengan regresi linear dilakukan dengan teknik analisis untuk mengidentifikasi relasi antar dua variabel atau lebih. Pada penelitian ini varibel yang digunakan adalah hasil deteksi berupa hasil jumlah deteksi langkah dengan hasil waktu tempuh untuk nantinya akan dicari terkait relasi antara variabel tersebut untuk bisa menentukan hasil yang diinginkan yaitu prediksi kalori. Dalam memulai melakukan proses regresi linear untuk prediksi kalori, dilakukan proses pengambilan data untuk diolah menjadi dataset yang akan digunakan dalam beberapa proses pada prediksi kalori dengan regresi linear ini. Proses pengambilan data dilakukan pada alat treadmill yang dilakukan uji dengan beragam variasi dan dilakukan pencatatan data untuk digunakan sebagai dataset pada penelitian ini. Data yang diambil untuk dilakukan pengolahan dari alat treadmill adalah data waktu, kecepatan dan kalori terbakar. Data yang diperoleh dengan mengumpulkan data untuk model regresi linear dari alat treadmill didapatkan jumlah 1045 total data yang dapat dilihat pada Tabel \ref{tb:DatasetRegresi}
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Hasil pengambilan data pada treadmill}
+  \label{tb:DatasetRegresi}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{No} & \textbf{Waktu} & \textbf{Kecepatan} & \textbf{Kalori Terbakar} \\
+  \hline
+  1   & 0:06    & 1 (km/j)    & 0,1     \\
+  \hline
+  2   & 0:11    & 1 (km/j)    & 0,2     \\
+  \hline
+  54   & 0:50    & 2 (km/j)    & 1,9     \\
+  \hline
+  55   & 0:53    & 2 (km/j)    & 2,0     \\
+  \hline
+  215   & 1:03    & 3 (km/j)    & 3,6     \\
+  \hline
+  216   & 1:05    & 3 (km/j)    & 3,7     \\
+  \hline
+  375   & 1:18    & 4 (km/j)    & 6,0     \\
+  \hline
+  376   & 1:19    & 4 (km/j)    & 6,1     \\
+  \hline
+  700   & 1:43    & 8 (km/j)    & 16,0     \\
+  \hline
+  701   & 1:44    & 8 (km/j)    & 16,2     \\
+  \hline
+  1044   & 2:26    & 12 (km/j)    & 34,1     \\
+  \hline
+  1045   & 2:27    & 12 (km/j)    & 34,4     \\
+  \hline
+\end{longtable}
+
+Untuk dapat melakukan prediksi kalori dari hasil deteksi yang didapat menggunakan regresi linear diperlukan model regresi berdasarkan pemodelan dataset yang dibuat terlebih dahulu dan nantinya saat model regresi telah didapat maka akan dapat melakukan prediksi kalori berdasarkan akuisisi maupun dataset untuk dilakukan proses prediksi dengan regresi linear. Dalam melakukan prediksi kalori dengan melakukan pemodelan regresi dilakukan dengan beberapa tahap untuk memproses hasil deteksi sehingga dapat melakukan prediksi. Tahapan untuk membuat model regresi yang diinginkan sesuai model sistem pada penelitian ini adalah dengan membuat regresi jarak tempuh, dataset regresi prediksi kalori dan model regresi linear prediksi kalori.
+
+Tahap pertama dalam melakukan prediksi kalori dari hasi deteksi yang sudah didapat diperlukan untuk melakukan pengolahan data dari hasil deteksi menjadi suatu variabel yang dapat digunakan dalam membuat model regresi. Hasil deteksi berupa banyak langkah dan waktu tempuh diolah agar dapat menjadi variabel dalam membuat model regresi prediksi kalori yang nantinya akan mempermudah dalam data yang didapat saat akuisisi dari hasil deteksi yaitu jarak tempuh dan waktu tempuh. Jarak tempuh pada model regresi prediksi kalori ini didapatkan dengan menggunakan rumus mencari jarak berdasarkan waktu dan kecepatannya yang ditunjukkan pada Persamaan \ref{eq:JarakTempuh}
+
+\begin{equation}
+  \label{eq:JarakTempuh}
+  Jarak Tempuh = \frac{Kecepatan}{Waktu}
+\end{equation}
+
+Dengan menggunakan rumus jarak tempuh berdasarkan kecepatan dan waktu, maka data yang telah dilakupan pengumpulan data untuk regresi linear pada alat treadmil dapat dilakukan pengolahan pada data kecepatan untuk menggunakan jarak tempuh agar mempermudah dalam proses sistem untuk mengenali data berdasarkan hasil deteksi pada penelitian ini. Dari setiap data yang dilakukan pengumpulan data dengan jumlah total data sebanyaka 1045 data akan dilakukan pengolahan untuk nantinya akan menggunakan data waktu tempuh dalam satuan detik, jarak tempuh dalam meter dan kalori yang terbakar. Menentukan jarak tempuh dalam meter dengan menggunakan data berupa waktu dengan satuan menit dan detik lalu kecepatan dalam satuan kilometer per jam dapat melakukan konversi satuan nilai dan menghasilkan persamaan untuk mengubah nilai tersebut sesuai yang diinginkan dan ditunjukkan pada Persamaan \ref{eq:KonversiJarakTempuh}
+
+\begin{equation}
+  \label{eq:KonversiJarakTempuh}
+  Jarak Tempuh(meter) = Kecepatan(km/j)*0,277778*Waktu(detik)
+\end{equation}
+
+Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakukan pengolahan data untuk memudahkan dalam penyesuaian data pada sistem. Dengan menggunakan perubahan data dengan konversi dan lain sebagainya, didapat data baru yang telah dilakukan pengolahan data. Tabel \ref{tb:OlahDatasetRegresi} menunjukkan data terbaru setelah melakukan pengolahan data dari proses pengambilan data.
+
+\begin{longtable}{|c|c|c|c|}
+  \caption{Hasil pengolahan data pada dataset}
+  \label{tb:OlahDatasetRegresi}                                   \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{No} & \textbf{Waktu (detik)} & \textbf{Jarak Tempuh (meter)} & \textbf{Kalori Terbakar} \\
+  \hline
+  1   & 6    & 1.666668    & 0,1     \\
+  \hline
+  2   & 11    & 3.055558    & 0,2     \\
+  \hline
+  54   & 50    & 27.7778    & 1,9     \\
+  \hline
+  55   & 53    & 29.444468    & 2,0     \\
+  \hline
+  215   & 63    & 52.500042    & 3,6     \\
+  \hline
+  216   & 65    & 54.16671    & 3,7     \\
+  \hline
+  375   & 78    & 86.666736    & 6,0     \\
+  \hline
+  376   & 79    & 87.777848    & 6,1     \\
+  \hline
+  700   & 103    & 226.666848    & 16,0     \\
+  \hline
+  701   & 104    & 228.889072    & 16,2     \\
+  \hline
+  1044   & 146    & 486.667056    & 34,1     \\
+  \hline
+  1045   & 147    & 490.000392    & 34,4     \\
+  \hline
+\end{longtable}
+
+Pengolahan data banyak langkah akan diubah menjadi jarak tempuh dengan menggunakan regresi polinomial dalam menentukan jarak tempuh berdasarkan dataset yang telah dikumpulkan. Dataset yang digunakan berdasarkan hasil pengambilan data pada alat treadmill dengan melakukan proyeksi penggunaan yang diinginkan dalam sistem ini dan melakukannya dengan berbagai variasi untuk mendapatkan data yang beragam. Data yang dikumpulkan berupa data kecepatan, waktu tempuh dan kalori yang terbakar sesuai dengan data pada alat treadmill. Data yang berhasil dikumpulkan untuk membuat dataset prediksi
 
 Regresi merupakan suatu teknik analisis untuk mengidentifikasi relasi antar dua variabel atau lebih. Model regresi linear dilakukan dengan cara membuat dataset terlebih dahulu yang diatur sesuai dengan variabel-variabel yang dibutuhkan pada penelitian ini. Terdapat variabel independen dan variabel dependen sebagai bentuk model dataset yang akan digunakan pada regresi linear yang digunakan. Variabel independen yang digunakan pada dataset ini adalah waktu tempuh dan jarak tempuh. Sedangkan untuk variabel dependen yang digunakan adalah jumlah kalori yang terbakar.
 
@@ -181,7 +266,7 @@ Berdasarkan nilai satuan ukuran MET, didapatkan suatu persamaan untuk menghitung
 
 \begin{equation}
   \label{eq:RumusKalori}
-  \mathbf{Cal} = \frac{MET x 3.5 x BB}{200} x \frac{duration}{60} calories / min
+  \mathbf{Cal} = \frac{MET  x 3.5 x BB}{200} x \frac{duration}{60} calories / min
 \end{equation}
 
 Pada persamaan pembakaran kalori yang akan digunakan untuk melakukan perhitungan pembakaran kalori dari aktivitas yang dilakukan dibutuhkan beberapa nilai variabel untuk mendapatkah hasil total pembakaran kalori, yaitu nilai MET, nilai berat badan (BB), dan nilai waktu tempuh dalam menit.
