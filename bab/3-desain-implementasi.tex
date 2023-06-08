@@ -51,14 +51,14 @@ Data video yang digunakan pada penelitian ini berdasarkan pengambilan data video
 \section{Estimasi Pose}
 \label{sec:EstimasiPose}
 
-Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan estimasi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas jogging pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan estimasi pose. Estimasi pose menggunakan model Estimasi yang sudah ada yaitu Mediapipe. Hasil estimasi dari model Mediapipe berupa kerangka yang menyesuaikan bentuk tubuh yang diestimasi dari data video yang dimiliki.
+Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan estimasi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas \emph{jogging} pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan estimasi pose. Estimasi pose menggunakan model Estimasi yang sudah ada yaitu Mediapipe. Hasil estimasi dari model Mediapipe berupa kerangka yang menyesuaikan bentuk tubuh yang diestimasi dari data video yang dimiliki.
 
 Dalam penelitian ini yang berfokuskan pada proses deteksi langkah pada tubuh bagian bawah seperti kaki menyebabkan perlunya pemodelan ulang dan melakukan proses modifikasi pada hasil estimasi model Mediapipe. Dengan begitu proses modifikasi yang dilakukan adalah dengan mengambil kerangka bagian kaki dengan memberikan warna yang berbeda untuk hasil estimasi kaki bagian kiri dan kanan. Proses estimasi pose pada kaki yang dilakukan akan digunakan dalam proses selanjutnya dalam penelitian ini yang digambarkan pada gambar yang terdapat pada Gambar \ref{fig:DeteksiEstimasi}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.45]{gambar/deteksi pose.png}
-  \caption{Deteksi pose dengan MediaPipe}
+  \caption{Estimasi pose dengan MediaPipe}
   \label{fig:DeteksiEstimasi}
 \end{figure}
 
@@ -118,7 +118,7 @@ Hasil dari proses ekstrak fitur dengan melakukan pemindahan hasil estimasi ke da
   \hline
   Kiri            & 843    \\
   \hline
-  \textbf{Total}  & 1.731  \\
+  \textbf{Total}  & \textbf{1.731}  \\
   \hline
 \end{longtable}
 
@@ -144,7 +144,7 @@ Dataset yang digunakan pada penelitian ini berdasarkan hasil dari data video yan
 
 
 \section{Klasifikasi Langkah}
-\label{sec:Klasifikasi}
+\label{sec:KlasifikasiLangkah}
 
 Dataset yang telah dimiliki maka kemudian dilakukan \emph{training} untuk memperoleh model deteksi. Model deteksi dari dataset akan digunakan untuk melatih model dari sebuah algoritma pada \emph{Machine Learning}. Dalam melakukan klasifikasi menggunakan \emph{Convolutional Neural Networks} (CNN). Proses \emph{training} ini bertujuan agar nantinya komputasi yang dilakukan dalam proses deteksi akan dapat diolah berdasarkan akuisisi data citra yang ingin dideteksi menjadi bentuk atau pola pemahaman yang diinginkan. Hasil \emph{training} akan didapatkan model yang digunakan untuk melakukan klasifikasi atas dataset yang dimiliki yaitu terdapat dua kelas atau label untuk dapat diklasifikasikan menjadi kaki kanan dan kiri. Klasifikasi dalam menentukan aktivitas yang digunakan pada penelitian ini adalah dapat mengetahu langkah dari seseorang yang berjalan atau berlari. Hasil klasifikasi dari model yang telah dibuat untuk menentukan hasil deteksi untuk kelas kanan ditunjukkan pada Gambar \ref{fig:KlasifikasiKanan} dan hasil deteksi untuk kelas kiri ditunjukkan pada Gambar \ref{fig:KlasifikasiKiri}.
 
@@ -385,7 +385,7 @@ Hasil pengolahan data untuk dataset panjang langkah digunakan untuk membuat mode
   \multicolumn{2}{|c|}{\textbf{Variabel Independen}}  & \textbf{Variabel Dependen}  \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Waktu (detik)} & \textbf{Jarak Tempuh (meter)} & \textbf{Kalori Terbakar} \\
+  \textbf{Waktu (detik)} & \textbf{Langkah} & \textbf{Panjang Langkah} \\
   \hline
   6    & 4    & 0.38089      \\
   \hline
@@ -431,14 +431,14 @@ Perhitungan kalori dilakukan dengan mengacu pada nilai satuan ukuran \emph{(Meta
 
 \begin{equation}
   \label{eq:SatuanMET}
-  1 \mathbf{MET} = 3,5 ml O_2  / KG / min
+  1 \mathbf{MET} = 3.5 ml O_2  / KG / min
 \end{equation}
 
 Berdasarkan nilai satuan ukuran MET, didapatkan suatu persamaan untuk menghitung pembakaran kalori yang didefiniskan pada Persamaan \ref{eq:RumusKalori}.
 
 \begin{equation}
   \label{eq:RumusKalori}
-  \mathbf{Cal} = \frac{MET  x 3.5 x BB}{200} x \frac{duration}{60} calories / min
+  \mathbf{Cal} = \frac{MET * 3.5 * BB}{200} * \frac{duration}{60} calories / min
 \end{equation}
 
 Pada persamaan pembakaran kalori yang akan digunakan untuk melakukan perhitungan pembakaran kalori dari aktivitas yang dilakukan dibutuhkan beberapa nilai variabel untuk mendapatkah hasil total pembakaran kalori, yaitu nilai MET, nilai berat badan (BB), dan nilai waktu tempuh dalam menit.
