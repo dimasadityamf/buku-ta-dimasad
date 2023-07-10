@@ -241,14 +241,14 @@ Tahap pertama dalam melakukan prediksi kalori dari hasi deteksi yang sudah didap
 
 \begin{equation}
   \label{eq:JarakTempuh}
-  Jarak Tempuh = \frac{Kecepatan}{Waktu}
+  Jarak \; Tempuh = Kecepatan*Waktu
 \end{equation}
 
 Dengan menggunakan rumus jarak tempuh berdasarkan kecepatan dan waktu, maka data yang telah dilakupan pengumpulan data untuk regresi linear pada alat treadmil dapat dilakukan pengolahan pada data kecepatan untuk menggunakan jarak tempuh agar mempermudah dalam proses sistem untuk mengenali data berdasarkan hasil deteksi pada penelitian ini. Dari setiap data yang dilakukan pengumpulan data dengan jumlah total data sebanyaka 1045 data akan dilakukan pengolahan untuk nantinya akan menggunakan data waktu tempuh dalam satuan detik, jarak tempuh dalam meter dan kalori yang terbakar. Menentukan jarak tempuh dalam meter dengan menggunakan data berupa waktu dengan satuan menit dan detik lalu kecepatan dalam satuan kilometer per jam dapat melakukan konversi satuan nilai dan menghasilkan persamaan untuk mengubah nilai tersebut sesuai yang diinginkan dan ditunjukkan pada Persamaan \ref{eq:KonversiJarakTempuh}
 
 \begin{equation}
   \label{eq:KonversiJarakTempuh}
-  Jarak Tempuh(meter) = Kecepatan(km/j)*0,277778*Waktu(detik)
+  Jarak \; Tempuh \; (meter) = Kecepatan \; (km/j)*0,277778*Waktu \; (detik)
 \end{equation}
 
 Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakukan pengolahan data untuk memudahkan dalam penyesuaian data pada sistem. Dengan menggunakan perubahan data dengan persamaan konversi untuk mencari jarak tempuh, didapat data baru yang telah dilakukan pengolahan data. Tabel \ref{tb:OlahDatasetRegresi} menunjukkan data terbaru setelah melakukan pengolahan data dari proses pengambilan data. 
@@ -286,7 +286,7 @@ Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakuka
   \hline
 \end{longtable}
 
-Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model regresi linear dari dataset yang telah dibuat untuk dapat melakukan prediksi kalori terbakar. Model regresi linear dibuat berdasarkan data berupa waktu dalam detik, jarak tempuh dalam meter dan kalori yang terbakar berdasarkan data pada treadmill yang sudah dilakukan pengambilan data dan pengolahan data. Pada model regresi linear dibutuhkan dua variabel yaitu variabel independen dan variabel dependen. Dataset yang telah didapat dilakukan pembagian berdasarkan variabel yang diperlukan berdasarkan model regresi yang diinginkan. Variabel independen dari dataset mencakup data mengenai waktu dan jarak tempuh, sedangkah variabel dependen dari dataset mencakup data kalori terbakar. Tabel \ref{tb:VariabelPrediksiKalori} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan. \lipsum[1][1-3]
+Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model regresi linear dari dataset yang telah dibuat untuk dapat melakukan prediksi kalori terbakar. Model regresi linear dibuat berdasarkan data berupa waktu dalam detik, jarak tempuh dalam meter dan kalori yang terbakar dalam kcal berdasarkan data pada treadmill yang sudah dilakukan pengambilan data dan pengolahan data. Pada model regresi linear dibutuhkan dua variabel yaitu variabel independen dan variabel dependen. Dataset yang telah didapat dilakukan pembagian berdasarkan variabel yang diperlukan berdasarkan model regresi yang diinginkan. Variabel independen dari dataset mencakup data mengenai waktu dan jarak tempuh, sedangkah variabel dependen dari dataset mencakup data kalori terbakar. Berdasarkan pembagian dataset kalori sesuai variabel regresi yang dibuat kemudian akan dilakukan pembuatan model regresi dalam persamaan regresi linear. Tabel \ref{tb:VariabelPrediksiKalori} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan. 
 
 \begin{longtable}{|c|c|c|}
   \caption{Pembagian dataset kalori berdsarkan variabel regresi}
@@ -324,11 +324,18 @@ Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model 
   \hline
 \end{longtable}
 
-Model regresi linear dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Setelah pembagian dataset telah dilakukan, pembuatan model regresi linear dilakukan dengan memahami pola dari data variabel independen untuk menghasilkan variabel dependen. Hasil dari model regresi linear berupa persamaan regresi linear yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan proyeksi model regresi berdasarkan data dan persamaan regresi linear yang digunakan. Hasil proyeksi dari model regresi linear untuk prediksi kalori terbakar yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiKalori}.
+Model regresi linear dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Setelah pembagian dataset telah dilakukan, pembuatan model regresi linear dilakukan dengan memahami pola dari data variabel independen untuk menghasilkan variabel dependen. Pembuatan model regresi dilakukan dengan menganalisa dari setiap kemungkinan yang akan terjadi berdasarkan variabel independen untuk bisa memperkirakan hasil yang diinginkan berdasarkan variabel dependen. Analisa yang dilakukan untuk membuat model regresi mendapatkan model persamaan yang nantinya dapat digunakan untuk melakukan pada data akuisisi baru. Hasil dari model regresi linear berupa persamaan regresi linear yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan model persamaan regresi linear yang akan digunakan dalam menentukan nilai prediksi kalori yang terbakar. Persamaan yang didapatkan dari model regresi linear dari dataset kalori ditunjukkan pada Persamaan \ref{eq:PersamaanRegresiKalori}.
+
+\begin{equation}
+  \label{eq:PersamaanRegresiKalori}
+  \mathbf{Cal} = - \; 0.00030418*Waktu + 0.0704*Jarak - 0.06703071381901893 \; kcal
+\end{equation}
+
+Persamaan dari model regresi yang didapat digunakan untuk melakukan prediksi kalori yang terbakar setelah mendapatkan data hasil prediksi yang akan diproses untuk dapat menjadi data yang diperlukan pada persamaan model regresi prediksi kalori. Pada persmaan model regresi didapatkan untuk melakukan prediksi kalori memerlukan data waktu dan jarak tempuh sesuai dengan dataset kalori. Satuan yang didapat pada persamaan berupa kalori yang terbakar dengan satuan berupa kcal. Saat melakukan akuisisi data akan dilakukan proses untuk mendapatkan data yang dapat digunakan dalam persamaan model regresi linear ini. Hasil dari proses pada data akuisisi akan digunakan pada persamaan model regresi linear untuk nantinya akan mendapatkan hasil prediksi kalori dengan model regresi yang digunakan. Dataset yang telah dilakukan pembuatan persamaan model regresi dapat dilakukan pembuatan proyeksi model regresi berdasarkan data dan persamaan regresi linear yang digunakan. Hasil proyeksi dari model regresi linear untuk prediksi kalori terbakar yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiKalori}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.6]{gambar/model regresi kalori3.png}
+  \includegraphics[scale=0.7]{gambar/model regresi kalori3.png}
   \caption{Model regresi linear prediksi kalori terbakar}
   \label{fig:ModelRegresiKalori}
 \end{figure}
@@ -337,7 +344,7 @@ Tahap selanjutnya setelah mendapatkan model regresi linear untuk prediksi kalori
 
 \begin{equation}
   \label{eq:KonversiPanjangLangkah}
-  Panjang Langkah = \frac{Jarak Tempuh}{Banyak Langkah}
+  Panjang \; Langkah = \frac{Jarak \; Tempuh}{Banyak \; Langkah}
 \end{equation}
 
 Proses perhitungan banyak langkah dari data video yang digunakan disimpan menjadi dataset untuk selanjutnya dilakukan pengolahan data. Hasil dataset perhitungan banyak langkah juga dilanjutkan dengan perhitungan panjang langkah dari setiap variasi dataset. Proses ini dilakukan untuk membuat dataset yang nantinya akan digunakan untuk melakukan prediksi terhadap panjang langkah saat melakukan estimasi pose dan deteksi langkah. Prediksi panjang langkah ini digunakan sebelum melakukan proses prediksi kalori terbakar saat melakukan akuisisi data dan prediksi kalori terbakar untuk mendapatkan data jarak tempuh yang kemudian digunakan untuk melakukan prediksi kalori terbakar. Tabel \ref{tb:OlahDatasetPanjang} menunjukkan hasil pengolahan data untuk dataset panjang langkah yang akan dilakukan pada proses prediksi panjang langkah.
@@ -417,7 +424,7 @@ Model regresi polinomial dibuat berdasarkan pembagian dataset sesuai variabel ya
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.4]{gambar/model regresi panjang.png}
+  \includegraphics[scale=0.5]{gambar/model regresi panjang.png}
   \caption{Model regresi polinomial prediksi panjang langkah}
   \label{fig:ModelRegresiPanjang}
 \end{figure}
@@ -431,14 +438,14 @@ Perhitungan kalori dilakukan dengan mengacu pada nilai satuan ukuran \emph{(Meta
 
 \begin{equation}
   \label{eq:SatuanMET}
-  1 \mathbf{MET} = 3.5 ml O_2  / KG / min
+  \mathbf{1 \; MET} = 3.5 \; ml \; O_2 \; / \; kg / \; min
 \end{equation}
 
 Berdasarkan nilai satuan ukuran MET, didapatkan suatu persamaan untuk menghitung pembakaran kalori yang didefiniskan pada Persamaan \ref{eq:RumusKalori}.
 
 \begin{equation}
   \label{eq:RumusKalori}
-  \mathbf{Cal} = \frac{MET * 3.5 * BB}{200} * \frac{duration}{60} calories / min
+  \mathbf{Cal} = \frac{MET * 3.5 * BB}{200} * \frac{waktu}{60} \; kcal
 \end{equation}
 
 Pada persamaan pembakaran kalori yang akan digunakan untuk melakukan perhitungan pembakaran kalori dari aktivitas yang dilakukan dibutuhkan beberapa nilai variabel untuk mendapatkah hasil total pembakaran kalori, yaitu nilai MET, nilai berat badan (BB), dan nilai waktu tempuh dalam menit.
@@ -491,7 +498,7 @@ Dataset MET yang didapat menunjukkan jika nilai MET dapat diketahui dengan berda
   Kecepatan = \frac{Jarak}{Waktu}
 \end{equation}
 
-Berdasarkan dataset kecepatan untuk mengetahui MET dapat kemudian dilakukan pembuatan model regresi linear untuk dapat menentukan prediksi MET berdasarkan hasil deteksi dengan pengolahan berupa data kecepatan. Model regresi linear dibuat berdasarkan data berupa kecepatan dan MET. Pembagian data dilakukan berdasarkan variabel dalam membuat model regresi linear yaitu variabel independen dan variabel dependen. Variabel independen meliputi data kecepatan dan variabel dependen meliputi data MET. Tabel \ref{tb:VariabelPrediksiMET} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan.
+Berdasarkan dataset kecepatan untuk mengetahui MET dapat kemudian dilakukan pembuatan model regresi polinomial untuk dapat menentukan prediksi MET berdasarkan hasil deteksi dengan pengolahan berupa data kecepatan. Model regresi polinomial dibuat berdasarkan data berupa kecepatan dan MET. Pembagian data dilakukan berdasarkan variabel dalam membuat model regresi polinomial yaitu variabel independen dan variabel dependen. Variabel independen meliputi data kecepatan dan variabel dependen meliputi data MET. Tabel \ref{tb:VariabelPrediksiMET} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan.
 
 \begin{longtable}{|c|c|}
   \caption{Pembagian dataset MET berdasarkan variabel regresi}
@@ -535,13 +542,13 @@ Berdasarkan dataset kecepatan untuk mengetahui MET dapat kemudian dilakukan pemb
   \hline
 \end{longtable}
 
-Model regresi linear dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Hasil dari model regresi linear berupa persamaan regresi linear yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan proyeksi model regresi berdasarkan data dan persamaan regresi linear yang digunakan. Hasil proyeksi dari model regresi linear untuk prediksi MET yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiMET}.
+Model regresi polinomial dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Hasil dari model regresi polinomial berupa persamaan regresi polinomial yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan proyeksi model regresi berdasarkan data dan persamaan regresi polinomial yang digunakan. Hasil proyeksi dari model regresi polinomial untuk prediksi MET yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiMET}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.8]{gambar/model regresi met.png}
-  \caption{Model regresi linear prediksi MET}
+  \includegraphics[scale=0.8]{gambar/model regresi poli met.png}
+  \caption{Model regresi polinomial prediksi MET}
   \label{fig:ModelRegresiMET}
 \end{figure}
 
-Setelah pengolahan data dan model telah dilakukan dapat dilanjutkan dengan melakukan proses prediksi kalori yang terbakar dengan perhitungan rumus. Proses melakukan prediksi dapat dilakukan dengan melakukan akuisisi data dengan data video atau menggunakan pengambilan data secara langsung. Data video kemudian dilanjutkan dengan proses estimasi pose untuk mendapatkan beberapa data gambar yang akan digunakan untuk proses klasifikasi dengan model deteksi langkah. Saat klasifikasi akan menghasilkan data yang nantinya akan digunakan untuk prediksi kalori. Hasil klasifikasi berupa data banyak langkah dan waktu tempuh. Data hasil klasifikasi akan diproses untuk dicari panjang langkah dengan model regresi polinomial untuk prediksi panjang langkah. Hasil prediksi akan digunakan untuk melakukan perhitungan terhadap banyak akumulasi langkah dikalikan dengan prediksi panjang langkah untuk menghasilkan jarak tempuh. Setelah didapatkan jarak tempuh dan waktu tempuh saat akuisisi data sudah dilakukan akan dilanjutkan dengan pengolahan data dari hasil deteksi jarak tempuh dan waktu tempuh untuk diketahui kecepatan tempuh berdasarkan konversi pada pengolahan data. Kecepatan tempuh yang didapat akan dilakukan prediksi MET menggunakan model regresi linear untuk prediksi MET. Hasil MET yang didapat akan dilakukan perhitungan menggunakan perhitungan rumus berdasarkan MET untuk kemudian menggunakan data waktu tempuh dan variabel berat badan (BB) sebesar 70 sebagai ukuran standar. Perhitungan rumus yang dilakukan berdasarkan nilai-nilai variabel yang telah ditentukan dalam proses merupakan hasil akhir berupa prediksi kalori yang terbakar.
+Setelah pengolahan data dan model telah dilakukan dapat dilanjutkan dengan melakukan proses prediksi kalori yang terbakar dengan perhitungan rumus. Proses melakukan prediksi dapat dilakukan dengan melakukan akuisisi data dengan data video atau menggunakan pengambilan data secara langsung. Data video kemudian dilanjutkan dengan proses estimasi pose untuk mendapatkan beberapa data gambar yang akan digunakan untuk proses klasifikasi dengan model deteksi langkah. Saat klasifikasi akan menghasilkan data yang nantinya akan digunakan untuk prediksi kalori. Hasil klasifikasi berupa data banyak langkah dan waktu tempuh. Data hasil klasifikasi akan diproses untuk dicari panjang langkah dengan model regresi polinomial untuk prediksi panjang langkah. Hasil prediksi akan digunakan untuk melakukan perhitungan terhadap banyak akumulasi langkah dikalikan dengan prediksi panjang langkah untuk menghasilkan jarak tempuh. Setelah didapatkan jarak tempuh dan waktu tempuh saat akuisisi data sudah dilakukan akan dilanjutkan dengan pengolahan data dari hasil deteksi jarak tempuh dan waktu tempuh untuk diketahui kecepatan tempuh berdasarkan konversi pada pengolahan data. Kecepatan tempuh yang didapat akan dilakukan prediksi MET menggunakan model regresi polinomial untuk prediksi MET. Hasil MET yang didapat akan dilakukan perhitungan menggunakan perhitungan rumus berdasarkan MET untuk kemudian menggunakan data waktu tempuh dan variabel berat badan (BB) sebesar 65 sebagai ukuran standar. Perhitungan rumus yang dilakukan berdasarkan nilai-nilai variabel yang telah ditentukan dalam proses merupakan hasil akhir berupa prediksi kalori yang terbakar.

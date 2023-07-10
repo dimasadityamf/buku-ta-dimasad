@@ -10,29 +10,29 @@ Berdasarkan hasil pengujian yang dilakukan dengan perhitungan analisa performa d
 
 \begin{enumerate}[nolistsep]
 
-  \item Penelitian sistem prediksi kalori yang terbakar saat berolahraga dengan treadmill berbasis kamera dengan menggunakan \emph{convolutional neural network} dapat bekerja dengan baik dengan melakukan hasil akhir nilai prediksi kalori yang terbakar menggunakan kamera.
+  \item Berdasarkan hasil pengujian dataset yang digunakan sebagai klasifikasi langkah dengan melakukan pengambilan data didapatkan hasil akurasi \emph{training} sebesar 0.951 dan \emph{validation} sebesar 0.977, sedangkan hasil \emph{loss} pada \emph{training} sebesar 0.127 dan \emph{validation} sebesar 0.059. Pengujian \emph{testing} model yang digunakan didapatkan hasil akurasi sebesar 95\% dengan hasil deteksi kelas kanan dengan benar sebanyak 170 sampel (100\%) dan kelas kiri sebanyak 161 sampel (91\%).
 
-  \item Berdasarkan hasil pengujian dataset yang digunakan sebagai klasifikasi langkah dengan melakukan pengambilan data didapatkan hasil akurasi \emph{training} sebesar 0.951 dan \emph{validation} sebesar 0.977, sedangkan hasil \emph{loss} pada \emph{training} sebesar 0.127 dan \emph{validation} sebesar 0.059.
-
-  \item Berdasarkan hasil pengujian \emph{testing} model yang digunakan didapatkan hasil akurasi sebesar 95\% dengan hasil deteksi kelas kanan dengan benar sebanyak 170 sampel (100\%) dan kelas kiri sebanyak 161 sampel (91\%).
-
-  \item Pengujian hasil deteksi dengan model yang dibuat untuk melakukan klasifikasi langkah didapatkan hasil akurasi deteksi berdasarkan model klasifikasi sebesar 99,36\% dengan hasil error sebesar 0,64\%.
+  \item Pengujian deteksi langkah dengan model yang dibuat untuk melakukan klasifikasi langkah didapatkan hasil akurasi rata-rata deteksi berdasarkan model klasifikasi sebesar 96,14\% dengan hasil eror rata-rata sebesar 3,86\%.
   
-  \item Pengujian hasil prediksi dengan sistem yang digunakan berdasarkan metode regresi didapat hasil akurasi sebesar 93,61\% dengan error sebesar 6,39\% dan berdasarkan metode perhitungan rumus didapat hasil akurasi sebesar 81,03\% dengan error sebesar 18,97\%.
+  \item Pengujian prediksi kalori dengan sistem yang digunakan berdasarkan metode regresi didapat hasil akurasi sebesar 80,93\% dengan eror sebesar 19,07\% dan berdasarkan metode perhitungan rumus didapat hasil akurasi rata-rata sebesar 57,49\% dengan eror rata-rata sebesar 42,51\%.
+  
+  \item Pengujian performa berdasarkan skenario yang dilakukan mendapatkan hasil performa terbaik untuk hasil deteksi langkah pada kondisi intensitas cahaya tinggi dengan akurasi rata-rata sebesar 95,54\%. Kemudian hasil performa terbaik untuk prediksi kalori dengan regresi pada kondisi intensitas cahaya rendah dengan akurasi rata-rata sebesar 73,68\%. Hasil performa terbaik untuk prediksi kalori dengan perhitungan rumus pada kondisi intensitas cahaya tinggi dengan akurasi rata-rata sebesar 68,92\%.
+  
+  \item Pengujian sistem secara \emph{real time} didapatkan hasil akurasi rata-rata untuk deteksi langkah sebesar 81,35\%, hasil prediksi kalori dengan regresi sebesar 67,05\% dan prediksi kalori dengan perhitungan rumus sebesar 46,64\%.
 
 \end{enumerate}
 
 \section{Saran}
 \label{chap:saran}
 
-Untuk pengembangan lebih lanjut pada \lipsum[1][1-3] antara lain:
+Untuk pengembangan lebih lanjut pada penelitian ini terdapat beberapa saran oleh penulis yang dapat dilakukan antara lain:
 
 \begin{enumerate}[nolistsep]
 
-  \item Memperbaiki \lipsum[2][1-3]
-
-  \item \lipsum[2][4-6]
-
-  \item \lipsum[2][7-10]
+  \item Menambah jumlah dataset untuk model panjang langkah dan regresi yang dapat diperbanyak dalam variasi pengambilan data untuk pembuatan dataset tersebut.
+  
+  \item Mengoptimasi metode dalam klasifikasi langkah agar dapat melakukan deteksi hasil klasifikasi yang lebih baik.
+  
+  \item Melanjutkan penelitian agar dapat dijalankan secara \emph{realtime} dan terintegrasi sebagai aplikasi.
 
 \end{enumerate}
