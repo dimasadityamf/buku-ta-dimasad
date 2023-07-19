@@ -241,14 +241,14 @@ Tahap pertama dalam melakukan prediksi kalori dari hasi deteksi yang sudah didap
 
 \begin{equation}
   \label{eq:JarakTempuh}
-  Jarak \; Tempuh = Kecepatan*Waktu
+  Jarak \; Tempuh = Kecepatan \times Waktu
 \end{equation}
 
 Dengan menggunakan rumus jarak tempuh berdasarkan kecepatan dan waktu, maka data yang telah dilakupan pengumpulan data untuk regresi linear pada alat treadmil dapat dilakukan pengolahan pada data kecepatan untuk menggunakan jarak tempuh agar mempermudah dalam proses sistem untuk mengenali data berdasarkan hasil deteksi pada penelitian ini. Dari setiap data yang dilakukan pengumpulan data dengan jumlah total data sebanyaka 1045 data akan dilakukan pengolahan untuk nantinya akan menggunakan data waktu tempuh dalam satuan detik, jarak tempuh dalam meter dan kalori yang terbakar. Menentukan jarak tempuh dalam meter dengan menggunakan data berupa waktu dengan satuan menit dan detik lalu kecepatan dalam satuan kilometer per jam dapat melakukan konversi satuan nilai dan menghasilkan persamaan untuk mengubah nilai tersebut sesuai yang diinginkan dan ditunjukkan pada Persamaan \ref{eq:KonversiJarakTempuh}
 
 \begin{equation}
   \label{eq:KonversiJarakTempuh}
-  Jarak \; Tempuh \; (meter) = Kecepatan \; (km/j)*0,277778*Waktu \; (detik)
+  Jarak \; Tempuh \; (meter) = Kecepatan \; (km/j) \times 0,277778 \times Waktu \; (detik)
 \end{equation}
 
 Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakukan pengolahan data untuk memudahkan dalam penyesuaian data pada sistem. Dengan menggunakan perubahan data dengan persamaan konversi untuk mencari jarak tempuh, didapat data baru yang telah dilakukan pengolahan data. Tabel \ref{tb:OlahDatasetRegresi} menunjukkan data terbaru setelah melakukan pengolahan data dari proses pengambilan data. 
@@ -328,7 +328,7 @@ Model regresi linear dibuat berdasarkan pembagian dataset sesuai variabel yang d
 
 \begin{equation}
   \label{eq:PersamaanRegresiKalori}
-  \mathbf{Cal} = - \; 0.00030418*Waktu + 0.0704*Jarak - 0.06703071381901893 \; kcal
+  Kalori \; Terbakar = - \; 0.00030418 \times Waktu + 0.0704 \times Jarak - 0.06703071381901893 \; kkal
 \end{equation}
 
 Persamaan dari model regresi yang didapat digunakan untuk melakukan prediksi kalori yang terbakar setelah mendapatkan data hasil prediksi yang akan diproses untuk dapat menjadi data yang diperlukan pada persamaan model regresi prediksi kalori. Pada persmaan model regresi didapatkan untuk melakukan prediksi kalori memerlukan data waktu dan jarak tempuh sesuai dengan dataset kalori. Satuan yang didapat pada persamaan berupa kalori yang terbakar dengan satuan berupa kcal. Saat melakukan akuisisi data akan dilakukan proses untuk mendapatkan data yang dapat digunakan dalam persamaan model regresi linear ini. Hasil dari proses pada data akuisisi akan digunakan pada persamaan model regresi linear untuk nantinya akan mendapatkan hasil prediksi kalori dengan model regresi yang digunakan. Dataset yang telah dilakukan pembuatan persamaan model regresi dapat dilakukan pembuatan proyeksi model regresi berdasarkan data dan persamaan regresi linear yang digunakan. Hasil proyeksi dari model regresi linear untuk prediksi kalori terbakar yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiKalori}.
@@ -434,23 +434,19 @@ Setelah pengolahan data dan model telah dilakukan dapat dilanjutkan dengan melak
 \subsection{Perhitungan Rumus}
 \label{subsec:PrediksiPerhitungan}
 
-Perhitungan kalori dilakukan dengan mengacu pada nilai satuan ukuran \emph{(Metabolic Equivalent of Task)} (MET). Satuan MET akan mendapat pengukuran untuk konsumsi oksigen dan pembakaran kalori. Nilai dari satuan MET dapat didefinisikan pada Persamaan \ref{eq:SatuanMET}.
+Perhitungan kalori dilakukan dengan mengacu pada nilai satuan ukuran \emph{(Metabolic Equivalent of Task)} (MET). Satuan MET akan mendapat pengukuran untuk konsumsi oksigen dan pembakaran kalori. Nilai dari satuan MET dapat didefinisikan dengan nilai 1 MET setara dengan 3,5 mL O\textsubscript{2}/kg/menit. Diketahui juga dalam konsumsi oksigen dengan nilai 1.000 mL setara dengan pembakaran energi sebesar 5 kkal. Berdasarkan nilai satuan ukuran MET dan pembakaran energi, didapatkan suatu persamaan untuk menghitung pembakaran kalori yang didefiniskan pada Persamaan \ref{eq:RumusKalori1}.
 
+\setcounter{chapter}{2}
+\setcounter{equation}{0}
 \begin{equation}
-  \label{eq:SatuanMET}
-  \mathbf{1 \; MET} = 3.5 \; ml \; O_2 \; / \; kg / \; min
+  Kalori \; Terbakar = \frac{MET \times 3.5 \times berat \; badan \; (kg)}{200} \; kkal/menit
 \end{equation}
+\setcounter{chapter}{3}
+\setcounter{equation}{4}
 
-Berdasarkan nilai satuan ukuran MET, didapatkan suatu persamaan untuk menghitung pembakaran kalori yang didefiniskan pada Persamaan \ref{eq:RumusKalori}.
+Pada persamaan pembakaran kalori yang akan digunakan untuk melakukan perhitungan pembakaran kalori dari aktivitas yang dilakukan dibutuhkan beberapa nilai variabel untuk mendapatkah hasil total pembakaran kalori, yaitu nilai MET, nilai berat badan dalam kilogram (kg), dan nilai waktu tempuh dalam menit.
 
-\begin{equation}
-  \label{eq:RumusKalori}
-  \mathbf{Cal} = \frac{MET * 3.5 * BB}{200} * \frac{waktu}{60} \; kcal
-\end{equation}
-
-Pada persamaan pembakaran kalori yang akan digunakan untuk melakukan perhitungan pembakaran kalori dari aktivitas yang dilakukan dibutuhkan beberapa nilai variabel untuk mendapatkah hasil total pembakaran kalori, yaitu nilai MET, nilai berat badan (BB), dan nilai waktu tempuh dalam menit.
-
-Setiap aktivitas memiliki nilai MET yang berbeda-beda dan telah ditentukan oleh peneliti yang telah merangkum banyak aktivitas untuk ditentukan berapa nilai MET yang dihasilkan. Pada aktivitas olahraga yang difokuskan saat ini adalah jogging pada treadmill juga memiliki perbedaan nilai MET yang dipengaruhi oleh kecepatan jogging. Dataset MET terkait aktivitas olaharga terhadap jogging didapatkan untuk digunakan dalam prediksi kalori terbakar menggunakan perhitungan rumus pada penelitian ini. Terdapat data variasi kecepatan yang memiliki nilai MET yang bervariasi. Tabel \ref{tb:DatasetMET} menunjukkan dataset yang digunakan sebagai acuan dalam menentukan kecepatan dan MET yang didapat untuk kemudian dilakukan proses prediksi kalori terbakar.
+Setiap aktivitas memiliki nilai MET yang berbeda-beda dan telah ditentukan oleh peneliti yang telah merangkum banyak aktivitas untuk ditentukan berapa nilai MET yang dihasilkan berdasarkan beberapa jenis yang telah ditunjukkan pada Tabel \ref{tb:metjenisaktivitas}. Pada aktivitas olahraga yang difokuskan saat ini adalah jogging pada treadmill juga memiliki perbedaan nilai MET yang dipengaruhi oleh kecepatan jogging. Dataset MET terkait aktivitas olaharga terhadap jogging didapatkan berdasarkan penelitian oleh Ainsworth pada \emph{Compendium of Physical Activities} (\ref{subsec:compendium}) untuk digunakan dalam prediksi kalori terbakar menggunakan perhitungan rumus pada penelitian ini. Terdapat data variasi kecepatan yang memiliki nilai MET yang bervariasi. Tabel \ref{tb:DatasetMET} menunjukkan dataset yang digunakan sebagai acuan dalam menentukan kecepatan dan MET yang didapat untuk kemudian dilakukan proses prediksi kalori terbakar.
 
 \begin{longtable}{|c|c|}
   \caption{Dataset pengaruh kecepatan terhadap MET}
