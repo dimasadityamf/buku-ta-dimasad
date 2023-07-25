@@ -5,7 +5,7 @@ Penelitian ini dilaksanakan sesuai sistem berikut dengan implementasinya. Desain
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.215]{gambar/blok diagram metodologi4.png}
+  \includegraphics[scale=0.215]{gambar/blok diagram metodologi5.png}
   \caption{Blok Diagram Kerja Sistem}
   \label{fig:BlokDiagram}
 \end{figure}
@@ -48,24 +48,55 @@ Data video yang digunakan pada penelitian ini berdasarkan pengambilan data video
 \end{longtable}
 
 
-\section{Estimasi Pose}
+\section{Estimasi Pose Kaki}
 \label{sec:EstimasiPose}
 
-Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan estimasi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas \emph{jogging} pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan estimasi pose. Estimasi pose menggunakan model Estimasi yang sudah ada yaitu Mediapipe. Hasil estimasi dari model Mediapipe berupa kerangka yang menyesuaikan bentuk tubuh yang diestimasi dari data video yang dimiliki.
-
-Dalam penelitian ini yang berfokuskan pada proses deteksi langkah pada tubuh bagian bawah seperti kaki menyebabkan perlunya pemodelan ulang dan melakukan proses modifikasi pada hasil estimasi model Mediapipe. Dengan begitu proses modifikasi yang dilakukan adalah dengan mengambil kerangka bagian kaki dengan memberikan warna yang berbeda untuk hasil estimasi kaki bagian kiri dan kanan. Proses estimasi pose pada kaki yang dilakukan akan digunakan dalam proses selanjutnya dalam penelitian ini yang digambarkan pada gambar yang terdapat pada Gambar \ref{fig:DeteksiEstimasi}.
+Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan estimasi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas \emph{jogging} pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan estimasi pose. Estimasi pose menggunakan model Estimasi yang sudah ada yaitu Mediapipe. Hasil estimasi dari model Mediapipe berupa kerangka yang menyesuaikan bentuk tubuh yang diestimasi dari data video yang dimiliki. Hasil estimasi pose yang didapatkan menggunakan Mediapipe terdapat pada Gambar \ref{fig:posemediapipe}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.45]{gambar/deteksi pose.png}
+  \includegraphics[scale=0.45]{gambar/mediapipepose.png}
   \caption{Estimasi pose dengan MediaPipe}
-  \label{fig:DeteksiEstimasi}
+  \label{fig:posemediapipe}
 \end{figure}
+
+Dalam penelitian ini yang berfokuskan pada proses deteksi langkah pada tubuh bagian bawah seperti kaki menyebabkan perlunya pemodelan ulang dan melakukan proses modifikasi pada hasil estimasi model Mediapipe. Dengan begitu proses modifikasi yang dilakukan adalah dengan mengambil kerangka bagian kaki dengan memberikan warna yang berbeda untuk hasil estimasi kaki bagian kiri dan kanan. Modifikasi dilakukan dengan mengambil beberapa nilai poin \emph{landmark} pada mediapipe. Bagian yang diambil berdasarkan data seluruh \emph{landmark} dari mediapipe yang hanya berfokus pada bagian kaki. Tabel \ref{tb:landmarkkaki} menunjukkan nomor \emph{landmark} pada mediapipe yang digunakan untuk modifikasi pada estimasi pose kaki.
+
+\begin{longtable}{|c|c|}
+  \caption{\emph{Landmark} mediapipe yang digunakan untuk estimasi pose kaki}
+  \label{tb:landmarkkaki}  \\
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Nomor \emph{landmark}} & \textbf{Bagian tubuh} \\
+  \hline
+  25     & Lutut kiri     \\
+  \hline
+  26     & Lutut kanan     \\
+  \hline
+  27     & Pergelangan kaki kiri     \\
+  \hline
+  28     & Pergelangan kaki kanan    \\
+  \hline
+\end{longtable}
+
+Proses modifikasi estimasi pose kaki dilanjutkan dengan melakukan penggambaran ulang dengan menggambarkan garis penghubung dari setiap titik yang digunakan dan juga menggambarkan ulang lingkaran pada titik dari setiap \emph{landmark} yang digunakan dalam estimasi pose kaki. Hasil proses dalam menggambarkan ulang estimasi pose kaki yang dilakukan akan digunakan dalam proses selanjutnya dalam penelitian ini yang digambarkan pada gambar yang terdapat pada Gambar \ref{fig:DeteksiEstimasi}.
+
+
 
 \subsection{\emph{Preprocessing} Data}
 \label{subsec:PreProcessingData}
 
-Hasil estimasi pose dengan bentuk kerangka pada kaki sesuai dengan data video dilakukan tahap \emph{preprocessing}. \emph{Preprocessing} data dilakukan sebagai proses untuk mempersiapkan data dari input yang digunakan untuk kemudian dilakukannya proses pembuatan model dalam tahap \emph{training}. Terdapat beberapa tahapan yang dilakukan pada \emph{preprocessing} data untuk kemudian akan didapatkan dataset yang akan dapat digunakan untuk melakukan pembuatan model dengan proses \emph{training}. Setiap data video yang akan digunakan dalam proses ini akan dilakukan ekstrak dari data video menjadi gambar. Data video yang memiliki resolusi sebesar 1920 x 1080 dengan 25 FPS akan diubah dan diekstrak menjadi satuan gambar untuk digunakan sebagai dataset melalui proses \emph{preprocessing} data. Dengan resolusi data demikian akan menghasilkan 25 gambar atau \emph{frame} setiap satu detik dari video tersebut. Hasil ekstrak gambar dalam \emph{preprocessing} data ini akan kemudian dilanjutkan dalam proses untuk membuat dataset untuk kemudian digunakan dalam proses \emph{training} menjadi model.
+Hasil estimasi pose dengan bentuk kerangka pada kaki sesuai dengan data video dilakukan tahap \emph{preprocessing}. \emph{Preprocessing} data dilakukan sebagai proses untuk mempersiapkan data dari input yang digunakan untuk kemudian dilakukannya proses pembuatan model dalam tahap \emph{training}. Terdapat beberapa tahapan yang dilakukan pada \emph{preprocessing} data untuk kemudian akan didapatkan dataset yang akan dapat digunakan untuk melakukan pembuatan model dengan 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.55]{gambar/deteksi pose.png}
+  \caption{Estimasi pose kaki modifikasi dengan MediaPipe}
+  \label{fig:DeteksiEstimasi}
+\end{figure}
+
+\noindent
+proses \emph{training}. Setiap data video yang akan digunakan dalam proses ini akan dilakukan ekstrak dari data video menjadi gambar. Data video yang memiliki resolusi sebesar 1920 x 1080 dengan 25 FPS akan diubah dan diekstrak menjadi satuan gambar untuk digunakan sebagai dataset melalui proses \emph{preprocessing} data. Dengan resolusi data demikian akan menghasilkan 25 gambar atau \emph{frame} setiap satu detik dari video tersebut. Hasil ekstrak gambar dalam \emph{preprocessing} data ini akan kemudian dilanjutkan dalam proses untuk membuat dataset untuk kemudian digunakan dalam proses \emph{training} menjadi model.
 
 \subsection{Ekstrak Fitur}
 \label{subsec:AugmentasiData}
@@ -163,26 +194,26 @@ Dataset yang telah dimiliki maka kemudian dilakukan \emph{training} untuk memper
 \end{figure}
 
 
-\subsection{Hasil Deteksi}
+\subsection{Akumulasi Hasil Klasifikasi}
 \label{subsec:HasilDeteksi}
 
-Bentuk hasil klasifikasi yang dibuat adalah mendeteksi pose aktivitas dengan dapat menghitung langkah dan waktu yang ditempuh. Nilai langkah dan waktu yang ditempuh akan digunakan dalam perhitungan selanjutnya. Banyaknya jumlah langkah yang didapat saat hasil deteksi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi dan dihitung seberapa banyak langkah yang dilakukan saat proses deteksi. Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan digunakan dalam penentuan perhitungan kalori. Waktu tempuh dimulai saat dideteksi pertama kali nilai langkah yang ditemukan hingga saat akhir langkah tidak ada penambahan kembali yang menandakan proses deteksi telah selesai. Hasil deteksi akan ditampilkan seiring dengan proses deteksi yang dilakukan pada data citra seperti pada Gambar \ref{fig:HasilDeteksi} dan pada akhir proses deteksi akan menampilkan hasil akumulasi akhir dari hasil deteksi terhadap deteksi langkah dan waktu tempuh. Selain itu juga terdapat tampilan hasil perhitungan dan prediksi yang diharapkan dalam penelitian ini. Hasil tampilan untuk hasil deteksi di akhir sebagai akumulasi deteksi ditunjukkan pada Gambar \ref{fig:HasilDeteksi2}.
+Akumulasi hasil klasifikasi didapatkan berdasarkan proses estimasi pose aktivitas \emph{jogging} yang dilakukan klasifikasi langkah dengan melakukan perhitungan banyak langkah dan waktu tempuh yang didapat. Banyaknya jumlah langkah yang didapat saat proses klasifikasi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi kemudian diklasifikasi dan dihitung seberapa banyak langkah yang dilakukan. Waktu tempuh saat melakukan klasifikasi langkah merupakan nilai variabel kedua yang akan digunakan dalam penentuan perhitungan kalori. Waktu tempuh dimulai saat dideteksi kemduian diklasifikasi langkah pertama yang ditemukan hingga saat akhir langkah tidak ada penambahan kembali yang menandakan proses telah selesai. Hasil akumulasi klasifikasi akan ditampilkan seiring dengan proses yang dilakukan pada data citra seperti pada Gambar \ref{fig:HasilDeteksi} dan pada akhir proses akan menampilkan akumulasi hasil klasifikasi akhir dari hasil banyak langkah dan waktu tempuh. Selain itu juga terdapat tampilan hasil perhitungan dan prediksi yang diharapkan dalam penelitian ini. Hasil tampilan untuk akumulasi hasil klasifikasi di akhir sebagai akumulasi klasifikasi ditunjukkan pada Gambar \ref{fig:HasilDeteksi2}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.48]{gambar/hasil deteksi.png}
-  \caption{Tampilan hasil deteksi saat proses deteksi}
+  \caption{Tampilan hasil klasifikasi saat proses berlangsung}
   \label{fig:HasilDeteksi}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.7]{gambar/hasil deteksi2.png}
-  \caption{Tampilan akumulasi hasil deteksi}
+  \caption{Tampilan akumulasi hasil klasifikasi}
   \label{fig:HasilDeteksi2}
 \end{figure}
 
-\subsection{Hasil Deteksi Langkah}
+\subsection{Hasil Deteksi Banyak Langkah}
 \label{subsec:HasilLangkah}
 
 Banyaknya jumlah langkah yang didapat saat hasil deteksi digunakan sebagai nilai variable pertama yang akan digunakan dalam penentuan perhitungan kalori. Langkah dideteksi dan dihitung seberapa banyak langkah yang dilakukan saat proses deteksi. Dalam proses deteksi menggunakan model yang sudah dibuat mendapatkan hasil deteksi sesuai kelas yang digunakan yaitu kanan dan kiri. Saat sistem berhasil mendeteksi langkah berdasarkan model langkah kanan dan kiri akan melakukan akumulasi perhitungan langkah dengan menjumlahkan banyak hasil deteksi saat mengalami perubahan hasil deteksi. Dengan adanya perubahan hasil deteksi dari kelas kanan menjadi kiri ataupun sebaliknya, maka sistem akan melakukan penjumlahan pada variabel jumlah langkah berdasarkan hasil deteksi yaitu langkah dengan menggunakan deteksi langkah dari model yang telah dibuat. Saat dideteksinya awal langkah dan perubahan langkah yang mengakibatkan bertambahnya jumlah akumulasi langkah yang dideteksi akan membuat sistem berjalan dan membuat waktu tempuh dimulai berdasarkan hasil langkah awal yang dapat dideteksi. Proses deteksi langkah akan dimulai dengan dimulainya akuisisi data maupun berdasarkan dari data citra dataset dan diakhiri dengan akhir dari deteksi langkah yang tidak mengalami pertambahan dalam kurung waktu tertentu. Hasil akumulasi jumlah langkah akan disimpan dan dilakukan proses selanjutnya dalam menentukan prediksi dan perhitungan kalori.
@@ -195,12 +226,12 @@ Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan diguna
 \section{Prediksi Kalori}
 \label{sec:PrediksiKalori}
 
-Prediksi kalori dilakukn dengan dua metode, yaitu menggunakan metode regresi linear dan menggunakan perhitungan rumus EC (Exercise Calories) berdasarkan satuan ukuran MET (Metabolic Equivalent). Kedua metode prediksi ini digunakan sebagai pembanding dalam melakukan analisa terhadap hasil yang didapatkan dari metode prediksi menggunakan metode regresi linear dengan perhitungan rumus. Data yang digunakanan dalam proses prediksi kalori diambil berdasarkan hasil klasifikasi dan hasil deteksi yang telah dilakukan sebelumnya. Hasil deteksi berupa banyaknya langkah dan waktu tempuh digunakan untuk proses prediksi kalori baik dengan metode regresi linear maupun metode perhitungan rumus.
+Prediksi kalori dilakukn dengan dua metode, yaitu menggunakan metode regresi linear dan menggunakan perhitungan rumus EC (Exercise Calories) berdasarkan satuan ukuran MET (Metabolic Equivalent). Kedua metode prediksi ini digunakan sebagai pembanding dalam melakukan analisa terhadap hasil yang didapatkan dari metode prediksi menggunakan metode regresi linear dengan perhitungan MET. Data yang digunakanan dalam proses prediksi kalori diambil berdasarkan hasil klasifikasi dan hasil deteksi yang telah dilakukan sebelumnya. Hasil deteksi berupa banyaknya langkah dan waktu tempuh digunakan untuk proses prediksi kalori baik dengan metode regresi linear maupun metode perhitungan rumus.
 
 \subsection{Regresi Linear}
 \label{subsec:PrediksiRegresi}
 
-Prediksi kalori dengan regresi linear dilakukan dengan teknik analisis untuk mengidentifikasi relasi antar dua variabel atau lebih. Pada penelitian ini varibel yang digunakan adalah hasil deteksi berupa hasil jumlah deteksi langkah dengan hasil waktu tempuh untuk nantinya akan dicari terkait relasi antara variabel tersebut untuk bisa menentukan hasil yang diinginkan yaitu prediksi kalori. Dalam memulai melakukan proses regresi linear untuk prediksi kalori, dilakukan proses pengambilan data untuk diolah menjadi dataset yang akan digunakan dalam beberapa proses pada prediksi kalori dengan regresi linear ini. Proses pengambilan data dilakukan pada alat treadmill yang dilakukan uji dengan beragam variasi dan dilakukan pencatatan data untuk digunakan sebagai dataset pada penelitian ini. Data yang diambil untuk dilakukan pengolahan dari alat treadmill adalah data waktu, kecepatan dan kalori terbakar. Data yang diperoleh dengan mengumpulkan data untuk model regresi linear dari alat treadmill didapatkan jumlah 1045 total data yang dapat dilihat pada Tabel \ref{tb:DatasetRegresi}
+Prediksi kalori dengan regresi linear dilakukan dengan teknik analisis untuk mengidentifikasi relasi antar dua variabel atau lebih. Pada penelitian ini varibel yang digunakan adalah hasil deteksi berupa hasil jumlah deteksi langkah dengan hasil waktu tempuh untuk nantinya akan dicari terkait relasi antara variabel tersebut untuk bisa menentukan hasil yang diinginkan yaitu prediksi kalori. Dalam memulai melakukan proses regresi linear untuk prediksi kalori, dilakukan proses pengambilan data untuk diolah menjadi dataset yang akan digunakan dalam beberapa proses pada prediksi kalori dengan regresi linear ini. Proses pengambilan data dilakukan pada alat treadmill yang dilakukan uji dengan beragam variasi dan dilakukan pencatatan data untuk digunakan sebagai dataset pada penelitian ini. Data yang diambil untuk dilakukan pengolahan dari alat treadmill adalah data waktu, kecepatan dan kalori terbakar. Data yang diperoleh dengan mengumpulkan data untuk model regresi linear dari alat treadmill didapatkan jumlah 1045 total data yang dapat dilihat pada Tabel \ref{tb:DatasetRegresi}.
 
 \begin{longtable}{|c|c|c|c|}
   \caption{Hasil pengambilan data pada treadmill}
@@ -209,29 +240,27 @@ Prediksi kalori dengan regresi linear dilakukan dengan teknik analisis untuk men
   \rowcolor[HTML]{C0C0C0}
   \textbf{No} & \textbf{Waktu} & \textbf{Kecepatan} & \textbf{Kalori Terbakar} \\
   \hline
-  1   & 0:06    & 1 (km/j)    & 0,1     \\
+  1   & 6 detik   & 1 km/j    & 0,1 kkal    \\
   \hline
-  2   & 0:11    & 1 (km/j)    & 0,2     \\
+  2   & 11 detik   & 1 km/j    & 0,2 kkal    \\
   \hline
-  54   & 0:50    & 2 (km/j)    & 1,9     \\
+  3   & 16 detik   & 1 km/j    & 0,3 kkal    \\
   \hline
-  55   & 0:53    & 2 (km/j)    & 2,0     \\
+  4   & 21 detik   & 1 km/j    & 0,4 kkal    \\
   \hline
-  215   & 1:03    & 3 (km/j)    & 3,6     \\
+  5   & 26 detik   & 1 km/j    & 0,5 kkal    \\
   \hline
-  216   & 1:05    & 3 (km/j)    & 3,7     \\
+  ...   & ...      & ...    & ...    \\
   \hline
-  375   & 1:18    & 4 (km/j)    & 6,0     \\
+  1041   & 2 menit 23 detik    & 12 km/j    & 33,4 kkal    \\
   \hline
-  376   & 1:19    & 4 (km/j)    & 6,1     \\
+  1042   & 2 menit 24 detik    & 12 km/j    & 33,7 kkal    \\
   \hline
-  700   & 1:43    & 8 (km/j)    & 16,0     \\
+  1043   & 2 menit 25 detik    & 12 km/j    & 33,9 kkal    \\
   \hline
-  701   & 1:44    & 8 (km/j)    & 16,2     \\
+  1044   & 2 menit 26 detik    & 12 km/j    & 34,1 kkal    \\
   \hline
-  1044   & 2:26    & 12 (km/j)    & 34,1     \\
-  \hline
-  1045   & 2:27    & 12 (km/j)    & 34,4     \\
+  1045   & 2 menit 27 detik    & 12 km/j    & 34,4 kkal    \\
   \hline
 \end{longtable}
 
@@ -258,27 +287,25 @@ Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakuka
   \label{tb:OlahDatasetRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{No} & \textbf{Waktu (detik)} & \textbf{Jarak Tempuh (meter)} & \textbf{Kalori Terbakar} \\
+  \textbf{No} & \textbf{Waktu (detik)} & \textbf{Jarak Tempuh (meter)} & \textbf{Kalori Terbakar (kkal)} \\
   \hline
   1   & 6    & 1.666668    & 0,1     \\
   \hline
   2   & 11    & 3.055558    & 0,2     \\
   \hline
-  54   & 50    & 27.7778    & 1,9     \\
+  3   & 50    & 4.444448    & 0,3     \\
   \hline
-  55   & 53    & 29.444468    & 2,0     \\
+  4   & 53    & 5.833338    & 0,4     \\
   \hline
-  215   & 63    & 52.500042    & 3,6     \\
+  5   & 63    & 7.222228    & 0,5     \\
   \hline
-  216   & 65    & 54.16671    & 3,7     \\
+  ...   & ...    & ...    & ...     \\
   \hline
-  375   & 78    & 86.666736    & 6,0     \\
+  1041   & 143    & 476.667048    & 33,4     \\
   \hline
-  376   & 79    & 87.777848    & 6,1     \\
+  1042   & 144    & 480.000384    & 33,7     \\
   \hline
-  700   & 103    & 226.666848    & 16,0     \\
-  \hline
-  701   & 104    & 228.889072    & 16,2     \\
+  1043   & 145    & 483.33372    & 33,9     \\
   \hline
   1044   & 146    & 486.667056    & 34,1     \\
   \hline
@@ -288,6 +315,10 @@ Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakuka
 
 Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model regresi linear dari dataset yang telah dibuat untuk dapat melakukan prediksi kalori terbakar. Model regresi linear dibuat berdasarkan data berupa waktu dalam detik, jarak tempuh dalam meter dan kalori yang terbakar dalam kcal berdasarkan data pada treadmill yang sudah dilakukan pengambilan data dan pengolahan data. Pada model regresi linear dibutuhkan dua variabel yaitu variabel independen dan variabel dependen. Dataset yang telah didapat dilakukan pembagian berdasarkan variabel yang diperlukan berdasarkan model regresi yang diinginkan. Variabel independen dari dataset mencakup data mengenai waktu dan jarak tempuh, sedangkah variabel dependen dari dataset mencakup data kalori terbakar. Berdasarkan pembagian dataset kalori sesuai variabel regresi yang dibuat kemudian akan dilakukan pembuatan model regresi dalam persamaan regresi linear. Tabel \ref{tb:VariabelPrediksiKalori} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan. 
 
+
+
+Dalam membuat model regresi linear yang akan dilakukan, pembagian dataset yang sudah dilakukan untuk membuat model regresi dilakukan visualisasi dalam bentuk grafik untuk mengetahhui bagaimana hubungan antar data sebagai variabel yang akan digunakan dalam pembuatan model regresi. Visualisasi dilakukan dengan membuat grafik hubungan antara data waktu dengan kalori, jarak dengan kalori, dan waktu dengan jarak. Hasil visualisasi dalam bentuk grafik menghasilkan data grafik yang memiliki hubungan antara variabel yang akan digunakan dalam membuat model regresi. Visualisasi yang dilakukan terdapat pada Gambar \ref{fig:plotregresiall}.
+
 \begin{longtable}{|c|c|c|}
   \caption{Pembagian dataset kalori berdsarkan variabel regresi}
   \label{tb:VariabelPrediksiKalori}                                   \\
@@ -296,27 +327,25 @@ Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model 
   \multicolumn{2}{|c|}{\textbf{Variabel Independen}}  & \textbf{Variabel Dependen}  \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Waktu (detik)} & \textbf{Jarak Tempuh (meter)} & \textbf{Kalori Terbakar} \\
+  \textbf{Waktu (detik)} & \textbf{Jarak Tempuh (meter)} & \textbf{Kalori Terbakar (kkal)} \\
   \hline
   6    & 1.666668    & 0,1     \\
   \hline
   11    & 3.055558    & 0,2     \\
   \hline
-  50    & 27.7778    & 1,9     \\
+  50    & 4.444448    & 0,3     \\
   \hline
-  53    & 29.444468    & 2,0     \\
+  53    & 5.833338    & 0,4     \\
   \hline
-  63    & 52.500042    & 3,6     \\
+  63    & 7.222228    & 0,5     \\
   \hline
-  65    & 54.16671    & 3,7     \\
+  ...    & ...    & ...     \\
   \hline
-  78    & 86.666736    & 6,0     \\
+  143    & 476.667048    & 33,4     \\
   \hline
-  79    & 87.777848    & 6,1     \\
+  144    & 480.000384    & 33,7     \\
   \hline
-  103    & 226.666848    & 16,0     \\
-  \hline
-  104    & 228.889072    & 16,2     \\
+  145    & 483.33372    & 33,9     \\
   \hline
   146    & 486.667056    & 34,1     \\
   \hline
@@ -324,7 +353,23 @@ Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model 
   \hline
 \end{longtable}
 
-Model regresi linear dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Setelah pembagian dataset telah dilakukan, pembuatan model regresi linear dilakukan dengan memahami pola dari data variabel independen untuk menghasilkan variabel dependen. Pembuatan model regresi dilakukan dengan menganalisa dari setiap kemungkinan yang akan terjadi berdasarkan variabel independen untuk bisa memperkirakan hasil yang diinginkan berdasarkan variabel dependen. Analisa yang dilakukan untuk membuat model regresi mendapatkan model persamaan yang nantinya dapat digunakan untuk melakukan pada data akuisisi baru. Hasil dari model regresi linear berupa persamaan regresi linear yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan model persamaan regresi linear yang akan digunakan dalam menentukan nilai prediksi kalori yang terbakar. Persamaan yang didapatkan dari model regresi linear dari dataset kalori ditunjukkan pada Persamaan \ref{eq:PersamaanRegresiKalori}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.27]{gambar/plot regresi kalori2.png}
+  \caption{Grafik hubungan antara dua variabel dataset kalori}
+  \label{fig:plotregresiall}
+\end{figure}
+
+Berdasarkan visualisasi hubungan antara variabel yang akan digunakan dalam membuat model regresi, dapat kemudian dilakukan visualisasi untuk dapat memahami dalam grafik yang menghubungkan keseluruhan variabel. Pada penelitian ini digunakan regresi berganda dengan menggunakan variabel independen yang terdiri lebih dari satu untuk menentukan variabel dependen. Dalam hal ini, penggunaan grafik dalam memvisualisasikan hubungan antara seluruh variabel dapat digunakan dengan 3 variabel dalam grafik. Hasil visualisasi yang dilakukan terdapat pada Gambar \ref{fig:plotregresilinearnon}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.47]{gambar/plotregresinon.png}
+  \caption{Grafik hubungan antara tiga variabel dataset kalori}
+  \label{fig:plotregresilinearnon}
+\end{figure}
+
+Setelah melakukan visualisasi terhadap data yang akan digunakan dalam melakukan pembuatan model regresi dapat kemudian mengetahui bagaimana hubungan antar data. Dalam penelitian ini dataset kalori yang digunakan untuk menentukan prediksi kalori yang terbakar dengan variabel berupa waktu, jarak dan kalori yang terbakar mendapatkan hasil model regresi linear terhadap data yang digunakan. Model regresi linear dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Setelah pembagian dataset telah dilakukan, pembuatan model regresi linear dilakukan dengan memahami pola dari data variabel independen untuk menghasilkan variabel dependen. Pembuatan model regresi dilakukan dengan menganalisa dari setiap kemungkinan yang akan terjadi berdasarkan variabel independen untuk bisa memperkirakan hasil yang diinginkan berdasarkan variabel dependen. Analisa yang dilakukan untuk membuat model regresi mendapatkan model persamaan yang nantinya dapat digunakan untuk melakukan pada data akuisisi baru. Hasil dari model regresi linear berupa persamaan regresi linear yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan model persamaan regresi linear yang akan digunakan dalam menentukan nilai prediksi kalori yang terbakar. Persamaan yang didapatkan dari model regresi linear dari dataset kalori ditunjukkan pada Persamaan \ref{eq:PersamaanRegresiKalori}.
 
 \begin{equation}
   \label{eq:PersamaanRegresiKalori}
@@ -354,27 +399,25 @@ Proses perhitungan banyak langkah dari data video yang digunakan disimpan menjad
   \label{tb:OlahDatasetPanjang}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{No} & \textbf{Waktu (detik)} & \textbf{Langkah} & \textbf{Panjang Langkah} \\
+  \textbf{No} & \textbf{Waktu (detik)} & \textbf{Langkah} & \textbf{Panjang Langkah (meter)} \\
   \hline
   1   & 6    & 4    & 0.38089      \\
   \hline
   2   & 11    & 8    & 0.38089     \\
   \hline
-  54   & 50    & 53    & 0.52057     \\
+  3   & 16    & 12    & 0.38089     \\
   \hline
-  55   & 53    & 57    & 0.52057     \\
+  4   & 21    & 15    & 0.38089     \\
   \hline
-  215   & 63    & 85    & 0.61583     \\
+  5   & 26    & 19    & 0.38089     \\
   \hline
-  216   & 65    & 88    & 0.61583     \\
+  ...   & ...    & ...    & ...     \\
   \hline
-  375   & 78    & 131    & 0.66120     \\
+  1041   & 143    & 377    & 1.26289     \\
   \hline
-  376   & 79    & 133    & 0.66120     \\
+  1042   & 144    & 380    & 1.26289     \\
   \hline
-  700   & 103    & 263    & 0.86869     \\
-  \hline
-  701   & 104    & 266    & 0.86869     \\
+  1043   & 145    & 383    & 1.26289     \\
   \hline
   1044   & 146    & 385    & 1.26289     \\
   \hline
@@ -392,33 +435,32 @@ Hasil pengolahan data untuk dataset panjang langkah digunakan untuk membuat mode
   \multicolumn{2}{|c|}{\textbf{Variabel Independen}}  & \textbf{Variabel Dependen}  \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Waktu (detik)} & \textbf{Langkah} & \textbf{Panjang Langkah} \\
+  \textbf{Waktu (detik)} & \textbf{Langkah} & \textbf{Panjang Langkah (meter)} \\
   \hline
   6    & 4    & 0.38089      \\
   \hline
   11    & 8    & 0.38089     \\
   \hline
-  50    & 53    & 0.52057     \\
+  16    & 12    & 0.38089     \\
   \hline
-  53    & 57    & 0.52057     \\
+  21    & 15    & 0.38089     \\
   \hline
-  63    & 85    & 0.61583     \\
+  26    & 19    & 0.38089     \\
   \hline
-  65    & 88    & 0.61583     \\
+  ...    & ...    & ...     \\
   \hline
-  78    & 131    & 0.66120     \\
+  143    & 377    & 1.26289     \\
   \hline
-  79    & 133    & 0.66120     \\
+  144    & 380    & 1.26289     \\
   \hline
-  103    & 263    & 0.86869     \\
-  \hline
-  104    & 266    & 0.86869     \\
+  145    & 383    & 1.26289     \\
   \hline
   146    & 385    & 1.26289     \\
   \hline
   147    & 388    & 1.26289     \\
   \hline
 \end{longtable}
+\clearpage
 
 Model regresi polinomial dibuat berdasarkan pembagian dataset sesuai variabel yang digunakan. Hasil dari model regresi polinomial berupa persamaan regresi polinomial yang akan digunakan dalam proses prediksi selanjutnya. Dataset yang telah dibagi dilakukan prose pembuatan model menghasilkan proyeksi model regresi berdasarkan data dan persamaan regresi polinomial yang digunakan. Hasil proyeksi dari model regresi polinomial untuk prediksi panjang langkah yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiPanjang}.
 
@@ -431,7 +473,7 @@ Model regresi polinomial dibuat berdasarkan pembagian dataset sesuai variabel ya
 
 Setelah pengolahan data dan model telah dilakukan dapat dilanjutkan dengan melakukan proses prediksi kalori yang terbakar dengan regresi linear. Proses melakukan prediksi dapat dilakukan dengan melakukan akuisisi data dengan data video atau menggunakan pengambilan data secara langsung. Data video kemudian dilanjutkan dengan proses estimasi pose untuk mendapatkan beberapa data gambar yang akan digunakan untuk proses klasifikasi dengan model deteksi langkah. Saat klasifikasi akan menghasilkan data yang nantinya akan digunakan untuk prediksi kalori. Hasil klasifikasi berupa data banyak langkah dan waktu tempuh. Data hasil klasifikasi akan diproses untuk dicari panjang langkah dengan model regresi polinomial untuk prediksi panjang langkah. Hasil prediksi akan digunakan untuk melakukan perhitungan terhadap banyak akumulasi langkah dikalikan dengan prediksi panjang langkah untuk menghasilkan jarak tempuh. Setelah didapatkan jarak tempuh dan waktu tempuh saat akuisisi data sudah dilakukan akan dilanjutkan dengan prediksi kalori menggunakan model regresi linear untuk prediksi kalori terbakar. Hasil prediksi kalori terbakar akan didapatkan berdasarkan model yang sudah dibuat dan data yang didapat.
 
-\subsection{Perhitungan Rumus}
+\subsection{Perhitungan MET}
 \label{subsec:PrediksiPerhitungan}
 
 Perhitungan kalori dilakukan dengan mengacu pada nilai satuan ukuran \emph{(Metabolic Equivalent of Task)} (MET). Satuan MET akan mendapat pengukuran untuk konsumsi oksigen dan pembakaran kalori. Nilai dari satuan MET dapat didefinisikan dengan nilai 1 MET setara dengan 3,5 mL O\textsubscript{2}/kg/menit. Diketahui juga dalam konsumsi oksigen dengan nilai 1.000 mL setara dengan pembakaran energi sebesar 5 kkal. Berdasarkan nilai satuan ukuran MET dan pembakaran energi, didapatkan suatu persamaan untuk menghitung pembakaran kalori yang didefiniskan pada Persamaan \ref{eq:RumusKalori1}.
@@ -486,6 +528,7 @@ Setiap aktivitas memiliki nilai MET yang berbeda-beda dan telah ditentukan oleh 
   22.5308   & 23    \\
   \hline
 \end{longtable}
+\clearpage
 
 Dataset MET yang didapat menunjukkan jika nilai MET dapat diketahui dengan berdasarkan kecepatan yang dilakukan saat melakukan aktivitas olahraga \emph{jogging}. Berdasarkan hasil deteksi pada sistem yang digunakan pada penelitian ini untuk melakukan prediksi kalori berupa jumlah langkah dan waktu tempuh yang kemudian dilakukan pengolahan data untuk menghasilkan data jarak tempuh dan waktu tempuh dapat dilakukan pengolahan lanjut untuk mencari kecepatan tempuh. Kecepatan tempuh dapat kemudian dilakukan pengolahan kembali untuk mencari nilai MET dan melakukan prediksi kalori terbakar dengan menggunakan rumus. Untuk mencari kecepatan tempuh dapat diketahui dengan nilai hasil deteksi dan pengolahan data berupa jarak tempuh dan waktu tempuh untuk menentukan kecepatan tempuh dengan menggunakan Persamaan \ref{eq:RumusKecepatan}.
 
