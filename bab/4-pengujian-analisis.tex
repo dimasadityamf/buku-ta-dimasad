@@ -26,26 +26,26 @@ Penelitian dilakukan dengan melakukan uji dan anaisa dari sistem yang telah dibu
 \section{Pengujian Hasil \emph{Training}, \emph{Validation} dan \emph{Testing} Model}
 \label{sec:PengujianTrainingValidation}
 
-Pengujian pembuatan model berdasarkan hasil \emph{training} dan \emph{validation} dengan menggunakan dataset dengan jumlah keseluruhan yaitu 1731 sampel data. Dengan jumlah sample training sebanyak 1385 dan sampel validation sebanyak 346. Setelah dilakukan proses \emph{training} dan \emph{validation} terhadap dataset yang telah ditentukan oleh sampel data, didapatkan hasil pengujian akurasi dengan tingkat akurasi training sebesar 0,951 dan tingkat akurasi validation sebesar 0,977. Kemudian didapatkan hasil pengujian loss pada training sebesar 0,127 dan loss pada validation sebesar 0,059. Hasil pengujian ditunjukkan pada grafik nilai akurasi dan loss pada proses \emph{training} dan \emph{validation} seperti pada Gambar \ref{fig:HasilTrainingValidation}.
+Pengujian pembuatan model berdasarkan hasil \emph{training} dan \emph{validation} dengan menggunakan dataset dengan jumlah keseluruhan yaitu 1731 sampel data. Dengan jumlah sampel \emph{training} sebanyak 1385 dan sampel \emph{validation} sebanyak 346. Setelah dilakukan proses \emph{training} dan \emph{validation} terhadap dataset yang telah ditentukan oleh sampel data, didapatkan hasil pengujian akurasi dengan tingkat akurasi \emph{training} sebesar 0,951 dan tingkat akurasi \emph{validation} sebesar 0,977. Kemudian didapatkan hasil pengujian \emph{loss} pada \emph{training} sebesar 0,127 dan \emph{loss} pada \emph{validation} sebesar 0,059. Hasil pengujian ditunjukkan pada grafik nilai akurasi dan \emph{loss} pada proses \emph{training} dan \emph{validation} seperti pada Gambar \ref{fig:HasilTrainingValidation}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.6]{gambar/hasil training dan validation w.jpg}
-  \caption{Grafik hasil \emph{training} dan \emph{validation}}
+  \caption{Grafik hasil \emph{Training} dan \emph{Validation}}
   \label{fig:HasilTrainingValidation}
 \end{figure}
 
-Pengujian dilanjutkan dengan melakukan \emph{testing} model dengan menggunakan dataset yang sudah dimiliki dengan jumlah keseluruhan yaitu 347 sampel data. Dataset yang digunakan merupakan dataset yang sudah dilakukan filtrasi yang hanya digunakan pada pengujian \emph{testing} saja. Hasil pengujian \emph{testing} model didapatkan akurasi sebesar 95\% dengan hasil deteksi benar untuk kelas kanan sebanyak 170 sampel 96\% dan kelas kiri sebanyak 161 sampel 95\%. Pengujian ditunjukkan dengan confusion matrix pada Gambar \ref{fig:HasilTesting} dan Tabel \ref{tb:ClassificationReport} merupakan classification report dari hasil pengujian yang telah dilakukan pada pengujian \emph{testing} model penelitian ini.
+Pengujian dilanjutkan dengan melakukan \emph{testing} model dengan menggunakan dataset yang sudah dimiliki dengan jumlah keseluruhan yaitu 347 sampel data. Dataset yang digunakan merupakan dataset yang sudah dilakukan filtrasi yang hanya digunakan pada pengujian \emph{testing} saja. Hasil pengujian \emph{testing} model didapatkan akurasi sebesar 95\% dengan hasil deteksi benar untuk kelas kanan sebanyak 170 sampel 96\% dan kelas kiri sebanyak 161 sampel 95\%. Pengujian ditunjukkan dengan \emph{confusion matrix} pada Gambar \ref{fig:HasilTesting} dan Tabel \ref{tb:ClassificationReport} merupakan \emph{classification report} dari hasil pengujian yang telah dilakukan pada pengujian \emph{testing} model penelitian ini.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.9]{gambar/cm normalized.png}
-  \caption{\emph{Confusion Matrix} hasil \emph{testing} model}
+  \caption{\emph{Confusion Matrix} hasil \emph{Testing} model}
   \label{fig:HasilTesting}
 \end{figure}
 
 \begin{longtable}{|c|c|c|c|c|}
-  \caption{\emph{Classification Report} hasil pengujian \emph{testing} model}
+  \caption{\emph{Classification Report} hasil pengujian \emph{Testing} model}
   \label{tb:ClassificationReport}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -66,22 +66,22 @@ Pembuatan model kedua dilakukan kembali proses estimasi pose untuk mendapatkan d
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.45]{gambar/dataset belakang kanan.jpg}
-  \caption{Hasil \emph{preprocessing} untuk model kedua kelas kanan}
+  \caption{Hasil \emph{Preprocessing} untuk model kedua kelas kanan}
   \label{fig:KelasBelakangKanan}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.45]{gambar/dataset belakang kiri.jpg}
-  \caption{Hasil \emph{preprocessing} untuk model kedua kelas kiri}
+  \caption{Hasil \emph{Preprocessing} untuk model kedua kelas kiri}
   \label{fig:KelasBelakangKiri}
 \end{figure}
 
 Hasil gambar digunakan pada dataset yang akan dilakukan pelabelan objek untuk dapat memberikan informasi nama kelas dari objek yang akan dideteksi pada model ini. Label yang diberikan pada dataset sesuai dengan kelas yaitu label kanan dan label kiri. Dari setiap gambar yang telah dilakukan ekstraksi fitur dilakukan pemberian label sesuai kelas yang digunakan Hasil pelabelan objek gambar tersebut ditunjukkan pada Tabel \ref{tb:HasilAnotasi}
 
-Dataset yang telah dilakukan anotasi untuk pelabelan objek dilakukan proses pembuatan model klasifikasi. Dengan menggunakan arsitetkur yang sama dilakukan proses \emph{training} untuk mendapatkan hasil \emph{training} dan \emph{validation} yang kemudian dilakukan \emph{testing} model yang telah dibuat terhadap dataset. Pengujian pembuatan model berdasarkan hasil \emph{training} dan \emph{validation} dengan menggunakan dataset dengan jumlah keseluruhan yaitu 1756 sampel data. Dengan jumlah sample training sebanyak 1405 dan sampel validation sebanyak 317. Setelah dilakukan proses \emph{training} dan \emph{validation} terhadap dataset yang telah ditentukan oleh sampel data, didapatkan hasil pengujian akurasi dengan tingkat akurasi training sebesar 0,959 dan tingkat akurasi validation sebesar 0,972. Kemudian didapatkan hasil pengujian loss pada training sebesar 0,107 dan loss pada validation sebesar 0,053. Hasil pengujian ditunjukkan pada grafik nilai akurasi dan loss pada proses \emph{training} dan \emph{validation} seperti pada Gambar \ref{fig:HasilTrainingValidationModel2}.
+Dataset yang telah dilakukan anotasi untuk pelabelan objek dilakukan proses pembuatan model klasifikasi. Dengan menggunakan arsitetkur yang sama dilakukan proses \emph{training} untuk mendapatkan hasil \emph{training} dan \emph{validation} yang kemudian dilakukan \emph{testing} model yang telah dibuat terhadap dataset. Pengujian pembuatan model berdasarkan hasil \emph{training} dan \emph{validation} dengan menggunakan dataset dengan jumlah keseluruhan yaitu 1756 sampel data. Dengan jumlah sampel \emph{training} sebanyak 1405 dan sampel \emph{validation} sebanyak 317. Setelah dilakukan proses \emph{training} dan \emph{validation} terhadap dataset yang telah ditentukan oleh sampel data, didapatkan hasil pengujian akurasi dengan tingkat akurasi \emph{training} sebesar 0,959 dan tingkat akurasi \emph{validation} sebesar 0,972. Kemudian didapatkan hasil pengujian \emph{loss} pada \emph{training} sebesar 0,107 dan \emph{loss} pada \emph{validation} sebesar 0,053. Hasil pengujian ditunjukkan pada grafik nilai akurasi dan \emph{loss} pada proses \emph{training} dan \emph{validation} seperti pada Gambar \ref{fig:HasilTrainingValidationModel2}.
 
-Pengujian dilanjutkan dengan melakukan \emph{testing} model dengan menggunakan dataset yang sudah dimiliki dengan jumlah keseluruhan yaitu 317 sampel data. Dataset yang digunakan merupakan dataset yang sudah dilakukan filtrasi yang hanya digunakan pada pengujian \emph{testing} saja. Hasil pengujian \emph{testing} model didapatkan akurasi sebesar 90\% dengan hasil deteksi benar untuk kelas kanan sebanyak 158 sampel 90\% dan kelas kiri sebanyak 182 sampel 91\%. Pengujian ditunjukkan dengan confusion matrix pada Gambar \ref{fig:HasilTestingModel2} dan Tabel \ref{tb:ClassificationReportModel2} merupakan classification report dari hasil pengujian yang telah dilakukan pada pengujian \emph{testing} model penelitian ini.
+Pengujian dilanjutkan dengan melakukan \emph{testing} model dengan menggunakan dataset yang sudah dimiliki dengan jumlah keseluruhan yaitu 317 sampel data. Dataset yang digunakan merupakan dataset yang sudah dilakukan filtrasi yang hanya digunakan pada pengujian \emph{testing} saja. Hasil pengujian \emph{testing} model didapatkan akurasi sebesar 90\% dengan hasil deteksi benar untuk kelas kanan sebanyak 158 sampel 90\% dan kelas kiri sebanyak 182 sampel 91\%. Pengujian ditunjukkan dengan \emph{confusion matrix} pada Gambar \ref{fig:HasilTestingModel2} dan Tabel \ref{tb:ClassificationReportModel2} merupakan \emph{classification report} dari hasil pengujian yang telah dilakukan pada pengujian \emph{testing} model penelitian ini.
 
 \begin{longtable}{|c|c|}
   \caption{Hasil anotasi dari pelabelan objek model kedua}
@@ -101,7 +101,7 @@ Pengujian dilanjutkan dengan melakukan \emph{testing} model dengan menggunakan d
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.9]{gambar/belakang w.jpg}
-  \caption{Grafik hasil \emph{training} dan \emph{validation} model kedua}
+  \caption{Grafik hasil \emph{Training} dan \emph{Validation} model kedua}
   \label{fig:HasilTrainingValidationModel2}
 \end{figure}
 
@@ -115,13 +115,13 @@ Proses deteksi yang dilakukan dengan menggunakan model yang telah dibuat dilakuk
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.75]{gambar/cm model belakang.png}
-  \caption{\emph{Confusion Matrix} hasil \emph{testing} model kedua}
+  \caption{\emph{Confusion Matrix} hasil \emph{Testing} model kedua}
   \label{fig:HasilTestingModel2}
 \end{figure}
 
 
 \begin{longtable}{|c|c|c|c|c|}
-  \caption{\emph{Classification Report} hasil pengujian \emph{testing} model kedua}
+  \caption{\emph{Classification Report} hasil pengujian \emph{Testing} model kedua}
   \label{tb:ClassificationReportModel2}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -137,7 +137,7 @@ Proses deteksi yang dilakukan dengan menggunakan model yang telah dibuat dilakuk
 
 
 \begin{longtable}{|c|c|c|}
-  \caption{Pengujian Hasil Deteksi}
+  \caption{Pengujian hasil deteksi}
   \label{tb:PengujianDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -183,7 +183,7 @@ Proses deteksi yang dilakukan dengan menggunakan model yang telah dibuat dilakuk
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video. Setiap percobaan dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Perbandingan dilakukan dengan mencari nilai eror dari hasil perbedaan yang didapat dari setiap data percobaan untuk kemudian ditentukan dan dikalkulasikan dalam hasil akurasi dan error yang didapat dari analisa tersebut. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 96,14\% dengan hasil eror rata-rata sebesar 3,86\%. Tabel \ref{tb:AnalisaDeteksi} menunjukkan hasil analisa dari setiap percobaan yang dilakukan analisa pengujian.
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Analisa Pengujian Hasil Deteksi}
+  \caption{Analisa pengujian hasil deteksi}
   \label{tb:AnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -232,7 +232,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 \section{Pengujian Prediksi Kalori}
 \label{sec:PengujianPrediksi}
 
-Pengujian pada prediksi jumlah kalori yang terbakar dilakukan setelah melakukan pengujian pada model deteksi yang telah dilakukan. Prediksi dilakukan dengan dua metode, yaitu regresi linear dan perhitungan rumus. Dengan menggunakan dataset berupa citra video yang akan digunakan untuk melakukan prediksi kalori sebanyak 17 sampel video sehingga terdapat 17 percobaan yang dilakukan. Video pengujian menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 6 km/jam, 8 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 5, 10 dan 20 kcal. 
+Pengujian pada prediksi jumlah kalori yang terbakar dilakukan setelah melakukan pengujian pada model deteksi yang telah dilakukan. Prediksi dilakukan dengan dua metode, yaitu regresi linear dan perhitungan MET. Dengan menggunakan dataset berupa citra video yang akan digunakan untuk melakukan prediksi kalori sebanyak 17 sampel video sehingga terdapat 17 percobaan yang dilakukan. Video pengujian menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 6 km/jam, 8 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 5, 10 dan 20 kkal. 
 
 \subsection{Prediksi dengan Regresi Linear}
 \label{subsec:PengujianPrediksiRegresi}
@@ -240,7 +240,7 @@ Pengujian pada prediksi jumlah kalori yang terbakar dilakukan setelah melakukan 
 Pada pengujian dengan regresi linear dengan melakukan proses deteksi dan menggunakan model regresi linear dalam melakukan proses prediksi kalori didapatkan beberapa data pendukung dalam hasil deteksi dan data dari hasil regresi prediksi kalori. Data video yang digunakan sebagai pengujian dilakukan proses deteksi sehingga mendapatkan beberapa data yang akan digunakan dalam proses prediksi kalori. Data deteksi langkah merupakan data hasil deteksi langkah yang didapat dari sistem terhadap data video. Data waktu didapat dari hasil waktu tempuh yang dilakukan selama melakukan proses deteksi pada data video. Dengan data yang didapat dari hasil deteksi berupa langkah dan waktu akan dilakukan akumulasi untuk mendapatkan data jarak dan prediksi kalori dengan regresi linear berdasarkan model yang sudah dibuat sehingga mendapatkan data prediksi kalori. Tabel \ref{tb:PengujianPrediksiRegresi} menunjukkan hasil deteksi dan hasil prediksi kalori dengan menggunakan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|}
-  \caption{Pengujian Prediksi dengan Regresi Linear}
+  \caption{Pengujian prediksi dengan Tegresi Linear}
   \label{tb:PengujianPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -285,16 +285,16 @@ Pada pengujian dengan regresi linear dengan melakukan proses deteksi dan menggun
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 80,93\% dengan hasil eror rata-rata sebesar 19,07\%. Tabel \ref{tb:AnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 
-\subsection{Prediksi dengan Perhitungan Rumus}
+\subsection{Prediksi dengan Perhitungan MET}
 \label{subsec:PengujianPrediksiPerhitungan}
 
 
 
-Pada pengujian dengan perhitungan rumus berdasarkan MET dilakukan dengan proses deteksi dan menggunakan perhitungan rumus untuk menghitung prediksi kalori yang terbakar didapatkan data pendukung dalam hasil deteksi dan data dari hasil perhitungan prediksi kalori. Data video yang digunakan sebagai pengujian dilakukan proses deteksi sehingga mendapatkan beberapa data yang akan digunakan dalam proses prediksi kalori. Data deteksi kecepatan merupakan data hasil deteksi yang sudah diproses untuk bisa menentukan kecepatan yang dilakukan dalam proses deteksi. Data MET merupakan 
+Pada pengujian dengan perhitungan MET berdasarkan MET dilakukan dengan proses deteksi dan menggunakan perhitungan MET untuk menghitung prediksi kalori yang terbakar didapatkan data pendukung dalam hasil deteksi dan data dari hasil perhitungan prediksi kalori. Data video yang digunakan sebagai pengujian dilakukan proses deteksi sehingga mendapatkan beberapa data yang akan digunakan dalam proses prediksi kalori. Data deteksi kecepatan merupakan data hasil deteksi yang sudah diproses untuk bisa menentukan kecepatan yang dilakukan dalam proses deteksi. Data MET merupakan 
 data prediksi MET berdasarkan kecepatan yang ditempuh dengan menggunakan model regresi MET. Data waktu didapat dari hasil waktu tempuh yang dilakukan selama proses deteksi pada data video. Dengan data yang didapat dari
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Analisa Pengujian Prediksi dengan Regresi Linear}
+  \caption{Analisa pengujian prediksi dengan Regresi Linear}
   \label{tb:AnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -340,16 +340,16 @@ data prediksi MET berdasarkan kecepatan yang ditempuh dengan menggunakan model r
 \end{longtable}
 
 \noindent
-deteksi dan proses yang dilakukan dapat dilakukan perhitungan rumus dengan menggunakan data MET dan waktu untuk menghitung dan mendapatkan data prediksi kalori dengan rumus yang digunakan. Tabel \ref{tb:PengujianPrediksiPerhitungan} menunjukkan hasil deteksi dan hasil prediksi kalori dengan menggunakan perhitungan rumus.
+deteksi dan proses yang dilakukan dapat dilakukan perhitungan MET dengan menggunakan data MET dan waktu untuk menghitung dan mendapatkan data prediksi kalori dengan rumus yang digunakan. Tabel \ref{tb:PengujianPrediksiPerhitungan} menunjukkan hasil deteksi dan hasil prediksi kalori dengan menggunakan perhitungan MET.
 
 
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 57,49\% dengan hasil eror rata-rata sebesar 42,51\%. Tabel \ref{tb:AnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 57,49\% dengan hasil eror rata-rata sebesar 42,51\%. Tabel \ref{tb:AnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
-Pengujian yang telah dilakukan berdasarkan metode yang digunakan yaitu regresi linear dan perhitungan rumus mendapatkan hasil performa dengan nilai akurasi rata-rata dan eror rata-rata. Hasil yang diperoleh melalui model yang telah dibuat untuk deteksi dan melakukan prediksi sesuai metode yang dilakukan didapatkan hasil akumulasi kalori dengan prediksi regresi sebesar 80,93\% dengan akumulasi error sebesar 19,07\%. Kemudian prediksi dengan perhitungan rumus didapatkan hasil akumulasi akurasi kalori sebesar 57,49\% dengan akumulasi error sebesar 42,51\%. Tabel \ref{tb:PengujianPrediksi} merupakan hasil perbandingan antara dataset percobaan dengan nilai kalori pembanding dataset dengan proses prediksi.
+Pengujian yang telah dilakukan berdasarkan metode yang digunakan yaitu regresi linear dan perhitungan MET mendapatkan hasil performa dengan nilai akurasi rata-rata dan eror rata-rata. Hasil yang diperoleh melalui model yang telah dibuat untuk deteksi dan melakukan prediksi sesuai metode yang dilakukan didapatkan hasil akumulasi kalori dengan prediksi regresi sebesar 80,93\% dengan akumulasi error sebesar 19,07\%. Kemudian prediksi dengan perhitungan MET didapatkan hasil akumulasi akurasi kalori sebesar 57,49\% dengan akumulasi error sebesar 42,51\%. Tabel \ref{tb:PengujianPrediksi} merupakan hasil perbandingan antara dataset percobaan dengan nilai kalori pembanding dataset dengan proses prediksi.
 
 \begin{longtable}{|c|c|c|c|c|}
-  \caption{Pengujian Prediksi dengan Perhitungan Rumus}
+  \caption{Pengujian prediksi dengan Perhitungan MET}
   \label{tb:PengujianPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -392,7 +392,7 @@ Pengujian yang telah dilakukan berdasarkan metode yang digunakan yaitu regresi l
 \end{longtable}
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Analisa Pengujian Prediksi dengan Perhitungan Rumus}
+  \caption{Analisa pengujian prediksi dengan Perhitungan MET}
   \label{tb:AnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -438,7 +438,7 @@ Pengujian yang telah dilakukan berdasarkan metode yang digunakan yaitu regresi l
 \end{longtable}
 
 \begin{longtable}{|c|c|c|c|c|}
-  \caption{Hasil Perbandingan Pengujian Prediksi Kalori}
+  \caption{Hasil perbandingan pengujian prediksi kalori}
   \label{tb:PengujianPrediksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -487,12 +487,12 @@ Pengujian yang telah dilakukan berdasarkan metode yang digunakan yaitu regresi l
 \section{Pengujian Performa Berdasarkan Jarak Kamera}
 \label{sec:PengujianJarak}
 
-Pada pengujian ini dilakukan deteksi dan prediksi kalori dengan menggunakan skenario berdasarkan jarak kamera terhdap objek deteksi yang berbeda-beda. Skenario pertama yang dilakukan adalah pengujian pada jarak kamera dekat, jarak kamera yang digunakan terhadap objek yang akan dilakukan pengujian dengan jarak 120 cm yang hanya dapat mencakup untuk melihat bagian kaki yang akan dilakukan deteksi. Skenario kedua yang dilakukan adalah pengujian pada jarak kamera jauh, jarak kamera yang digunakan terhadp objek yang akan dilakukan pengujian dengan jarak 320 cm yang terlihat objek cukup jauh dan kecil dari pandangan kamera yang akan diujikan untuk dilakukan deteksi. Video pengujian yang digunakan dengan banyak percobaan sebanyak 9 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 10 dan 20 kcal. 
+Pada pengujian ini dilakukan deteksi dan prediksi kalori dengan menggunakan skenario berdasarkan jarak kamera terhdap objek deteksi yang berbeda-beda. Skenario pertama yang dilakukan adalah pengujian pada jarak kamera dekat, jarak kamera yang digunakan terhadap objek yang akan dilakukan pengujian dengan jarak 120 cm yang hanya dapat mencakup untuk melihat bagian kaki yang akan dilakukan deteksi. Skenario kedua yang dilakukan adalah pengujian pada jarak kamera jauh, jarak kamera yang digunakan terhadp objek yang akan dilakukan pengujian dengan jarak 520 cm yang terlihat objek cukup jauh dan kecil dari pandangan kamera yang akan diujikan untuk dilakukan deteksi. Video pengujian yang digunakan dengan banyak percobaan sebanyak 9 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 10 dan 20 kkal. 
 
 \subsection{Pengujian Pada Jarak Kamera Dekat}
 \label{subsec:PengujianJarakDekat}
 
-Pengujian dilakukan dengan melakukan pengujian performa sistem pada jarak kamera dekat. Jarak kamera yang digunakan pada pengujian ini dengan jarak 120 cm terhadap objek yang dideteksi. Contoh cuplikan gambar yang memperlihatkan kondisi jarak kamera dekat dengan jaarak 120 cm dapat dilihat pada Gambar \ref{fig:PengujianJarakDekat}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianJarakDekat2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Pengujian dilakukan dengan melakukan pengujian performa sistem pada jarak kamera dekat. Jarak kamera yang digunakan pada pengujian ini dengan jarak 120 cm terhadap objek yang dideteksi. Contoh cuplikan gambar yang memperlihatkan kondisi jarak kamera dekat dengan jaarak 120 cm dapat dilihat pada Gambar \ref{fig:PengujianJarakDekat}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianJarakDekat2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 \begin{figure}[H]
   \centering
@@ -511,7 +511,7 @@ Pengujian dilakukan dengan melakukan pengujian performa sistem pada jarak kamera
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video. Dengan data video sebagai banyaknya percobaan dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Data langkah merupakan data sebagai data sebenarnya atau \emph{actual score} dengan melakukan perhitungan pada data video dan data deteksi langkah sebagai data hasil deteksi langkah yang didapatkan berdasarkan proses deteksi pada sistem. Perbandingan hasil deteksi dengan data sebenarnya dicantumkan pada data eror dan dilakukan persentase berdasarkan data sebenarnya. Hasil persentase eror mendapatkan hasil persentase akurasi yang juga didapatkan berdasarkan persentase eror. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 72,37\% dengan hasil eror rata-rata sebesar 27,63\%. Tabel \ref{tb:PengujianJarakDekatAnalisaDeteksi} menunjukkan hasil pengujian dari setiap percobaan yang dilakukan analisa pengujian terhadap hasil deteksi.
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Pada Jarak Dekat}
+  \caption{Hasil deteksi pengujian pada jarak dekat}
   \label{tb:PengujianJarakDekatAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -543,7 +543,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa banyaknya langkah, jarak dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan model regresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 49,53\% dengan hasil eror rata-rata sebesar 50,47\%. Tabel \ref{tb:PengujianJarakDekatAnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Jarak Dekat dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian pada jarak dekat dengan Regresi Linear}
   \label{tb:PengujianJarakDekatAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -575,10 +575,10 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
   \hline
 \end{longtable}
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 51,87\% dengan hasil eror rata-rata sebesar 48,13\%. Tabel \ref{tb:PengujianJarakDekatAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 51,87\% dengan hasil eror rata-rata sebesar 48,13\%. Tabel \ref{tb:PengujianJarakDekatAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Jarak Dekat dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian pada jarak dekat dengan Perhitungan MET}
   \label{tb:PengujianJarakDekatAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -613,26 +613,26 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
 \subsection{Pengujian Pada Jarak Jauh}
 \label{subsec:PengujianJarakJauh}
 
-Pengujian dilakukan dengan melakukan pengujian performa sistem pada jarak kamera dekat. Jarak kamera yang digunakan pada pengujian ini dengan jarak 320 cm terhadap objek yang dideteksi. Contoh cuplikan gambar yang memperlihatkan kondisi jarak kamera dekat dengan jaarak 320 cm dapat dilihat pada Gambar \ref{fig:PengujianJarakJauh}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianJarakJauh2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Pengujian dilakukan dengan melakukan pengujian performa sistem pada jarak kamera dekat. Jarak kamera yang digunakan pada pengujian ini dengan jarak 520 cm terhadap objek yang dideteksi. Contoh cuplikan gambar yang memperlihatkan kondisi jarak kamera dekat dengan jaarak 520 cm dapat dilihat pada Gambar \ref{fig:PengujianJarakJauh}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianJarakJauh2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video yang dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Data langkah sebagai data sebenarnya atau \emph{actual score} dengan melakukan perhitungan pada data deteksi langkah sebagai data hasil deteksi langkah yang didapatkan berdasarkan proses deteksi pada sistem. Perbandingan hasil deteksi dengan data sebenarnya dicantumkan pada data eror dan dilakukan persentase berdasarkan data sebenarnya. Hasil persentase eror mendapatkan hasil persentase akurasi yang juga didapatkan berdasarkan persentase eror. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 82,59\% dengan hasil eror rata-rata sebesar 17,41\%. Tabel \ref{tb:PengujianJarakJauhAnalisaDeteksi} menunjukkan hasil pengujian dari setiap percobaan yang dilakukan analisa pengujian terhadap hasil deteksi.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.46]{gambar/jarak_jauh.png}
-  \caption{Pengujian pada jarak 320 cm}
+  \caption{Pengujian pada jarak 520 cm}
   \label{fig:PengujianJarakJauh}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.46]{gambar/jarak_jauh2.png}
-  \caption{Hasil deteksi pengujian pada jarak 320 cm}
+  \caption{Hasil deteksi pengujian pada jarak 520 cm}
   \label{fig:PengujianJarakJauh2}
 \end{figure}
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Pada Jarak Jauh}
+  \caption{Hasil deteksi pengujian pada jarak jauh}
   \label{tb:PengujianJarakJauhAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -665,7 +665,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa banyaknya langkah, jarak dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan model regresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 63,80\% dengan hasil eror rata-rata sebesar 36,20\%. Tabel \ref{tb:PengujianJarakJauhAnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Jarak Jauh dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian pada jarak jauh dengan Regresi Linear}
   \label{tb:PengujianJarakJauhAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -697,14 +697,14 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
   \hline
 \end{longtable}
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 47,78\% dengan hasil eror rata-rata sebesar 52,22\%. Tabel \ref{tb:PengujianJarakJauhAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 47,78\% dengan hasil eror rata-rata sebesar 52,22\%. Tabel \ref{tb:PengujianJarakJauhAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
 
 
-Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langkah, prediksi kalori dengan regresi dan prediksi kalori dengan perhitungan rumus didapatkan hasil performa dalam nilai akurasi rata-rata dan eror rata-rata dari setiap pengujian. Pada pengujian deteksi langkah didapatkan akurasi rata-rata lebih baik pada jarak kamera 320 cm dengan nilai akurasi rata-rata sebesar 82,59\% sedangkan pada jarak kamera 120 cm didapat nilai akurasi rata-
+Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langkah, prediksi kalori dengan regresi dan prediksi kalori dengan perhitungan MET didapatkan hasil performa dalam nilai akurasi rata-rata dan eror rata-rata dari setiap pengujian. Pada pengujian deteksi langkah didapatkan akurasi rata-rata lebih baik pada jarak kamera 520 cm dengan nilai akurasi rata-rata sebesar 82,59\% sedangkan pada jarak kamera 120 cm didapat nilai akurasi rata-
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Jarak Jauh dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian pada jarak jauh dengan Perhitungan MET}
   \label{tb:PengujianJarakJauhAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -736,7 +736,7 @@ Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langk
 \end{longtable}
 
 \noindent
-rata sebesar 72,37\%. Pada pengujian prediksi kalori dengan regresi didapatkan akurasi rata-rata lebih baik pada jarak kamera 320 cm dengan nilai akurasi rata-rata sebesar 63,80\% sedangkan pada jarak kamera 120 cm didapat nilai akurasi rata-rata sebesar 49,53\%. Pada pengujian prediksi kalori dengan perhitungan rumus didapatkan akurasi rata-rata lebih baik pada jarak kamera 120 cm dengan nilai akurasi rata-rata sebesar 51,87\% sedangkan pada jarak kamera 320 cm didapat nilai akurasi rata-rata sebesar 47,78\%. Gambar \ref{fig:DiagramJarak} menunjukkan diagram perbandingan performa pengujian dengan nilai akurasi rata-rata berdasarkan jarak kamera.
+rata sebesar 72,37\%. Pada pengujian prediksi kalori dengan regresi didapatkan akurasi rata-rata lebih baik pada jarak kamera 520 cm dengan nilai akurasi rata-rata sebesar 63,80\% sedangkan pada jarak kamera 120 cm didapat nilai akurasi rata-rata sebesar 49,53\%. Pada pengujian prediksi kalori dengan perhitungan MET didapatkan akurasi rata-rata lebih baik pada jarak kamera 120 cm dengan nilai akurasi rata-rata sebesar 51,87\% sedangkan pada jarak kamera 520 cm didapat nilai akurasi rata-rata sebesar 47,78\%. Gambar \ref{fig:DiagramJarak} menunjukkan diagram perbandingan performa pengujian dengan nilai akurasi rata-rata berdasarkan jarak kamera.
 
 \begin{figure}[H]
   \centering
@@ -748,13 +748,13 @@ rata sebesar 72,37\%. Pada pengujian prediksi kalori dengan regresi didapatkan a
 \section{Pengujian Performa Berdasarkan Posisi Kamera}
 \label{sec:PengujianPosisi}
 
-Pada pengujian ini dilakukan deteksi dan prediksi kalori dengan menggunakan skenario berdasarkan posisi kamera terhdap objek deteksi yang berbeda-beda. Skenario pertama yang dilakukan adalah pengujian pada posisi kamera serong, posisi kamera berada di arah samping yang sedikit di arah depan dari objek yang terlihat dengan sudut 45 derajat dari samping objek sehingga terlihat sebagian wajah dari objek yang akan dilakukan deteksi. Skenario kedua yang dilakukan adalah pengujian pada posisi kamera belakang, posisi kamera berada di arah belakang dari objek sehingga terlihat bagian belakang objek yang akan dilakukan deteksi. Video pengujian yang digunakan dengan banyak percobaan sebanyak 9 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 10 dan 20 kcal. 
+Pada pengujian ini dilakukan deteksi dan prediksi kalori dengan menggunakan skenario berdasarkan posisi kamera terhdap objek deteksi yang berbeda-beda. Skenario pertama yang dilakukan adalah pengujian pada posisi kamera serong, posisi kamera berada di arah samping yang sedikit di arah depan dari objek yang terlihat dengan sudut 45 derajat dari samping objek sehingga terlihat sebagian wajah dari objek yang akan dilakukan deteksi. Skenario kedua yang dilakukan adalah pengujian pada posisi kamera belakang, posisi kamera berada di arah belakang dari objek sehingga terlihat bagian belakang objek yang akan dilakukan deteksi. Video pengujian yang digunakan dengan banyak percobaan sebanyak 9 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 10 dan 20 kkal. 
 
 
 \subsection{Pengujian Pada Posisi Serong}
 \label{subsec:PengujianPosisiSerong}
 
-Pengujian dilakukan dengan melakukan pengujian performa sistem pada posisi kamera serong. Posisi kamera yang digunakan pada pengujian ini dengan posisi serong dengan sudut 45 derajat dari samping objek yang dilakukan deteksi. Contoh cuplikan gambar yang memperlihatkan kondisi posisi kamera serong dapat dilihat pada Gambar \ref{fig:PengujianPosisiSerong}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianPosisiSerong2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Pengujian dilakukan dengan melakukan pengujian performa sistem pada posisi kamera serong. Posisi kamera yang digunakan pada pengujian ini dengan posisi serong dengan sudut 45 derajat dari samping objek yang dilakukan deteksi. Contoh cuplikan gambar yang memperlihatkan kondisi posisi kamera serong dapat dilihat pada Gambar \ref{fig:PengujianPosisiSerong}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianPosisiSerong2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 
 
@@ -776,7 +776,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Pada Posisi Serong}
+  \caption{Hasil deteksi pengujian pada posisi serong}
   \label{tb:PengujianPosisiSerongAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -808,7 +808,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa banyaknya langkah, jarak dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan model regresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 70,18\% dengan hasil eror rata-rata sebesar 29,82\%. Tabel \ref{tb:PengujianPosisiSerongAnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Posisi Serong dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian pada posisi serong dengan Regresi Linear}
   \label{tb:PengujianPosisiSerongAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -840,10 +840,10 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
   \hline
 \end{longtable}
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 53,20\% dengan hasil eror rata-rata sebesar 46,80\%. Tabel \ref{tb:PengujianPosisiSerongAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 53,20\% dengan hasil eror rata-rata sebesar 46,80\%. Tabel \ref{tb:PengujianPosisiSerongAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Posisi Serong dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian pada posisi serong dengan Perhitungan MET}
   \label{tb:PengujianPosisiSerongAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -877,7 +877,7 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
 \subsection{Pengujian Pada Posisi Belakang}
 \label{subsec:PengujianPosisiBelakang}
 
-Pengujian dilakukan dengan melakukan pengujian performa sistem pada posisi kamera serong. Posisi kamera yang digunakan pada pengujian ini dengan posisi belakang dengan terlihat bagian belakang objek yang dilakukan deteksi. Contoh cuplikan gambar yang memperlihatkan kondisi posisi kamera belakang dapat dilihat pada Gambar \ref{fig:PengujianPosisiBelakang}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianPosisiBelakang2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Pengujian dilakukan dengan melakukan pengujian performa sistem pada posisi kamera serong. Posisi kamera yang digunakan pada pengujian ini dengan posisi belakang dengan terlihat bagian belakang objek yang dilakukan deteksi. Contoh cuplikan gambar yang memperlihatkan kondisi posisi kamera belakang dapat dilihat pada Gambar \ref{fig:PengujianPosisiBelakang}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianPosisiBelakang2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video. Dengan data video sebagai banyaknya percobaan dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Data langkah merupakan data sebagai data sebenarnya atau \emph{actual score} dengan melakukan perhitungan pada data video dan data deteksi langkah sebagai data hasil deteksi langkah yang didapatkan berdasarkan proses deteksi pada sistem. Perbandingan hasil deteksi dengan data sebenarnya dicantumkan pada data eror dan dilakukan persentase berdasarkan data sebenarnya. Hasil persentase eror mendapatkan hasil persentase akurasi yang juga didapatkan berdasarkan persentase eror. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 67,23\% dengan hasil eror rata-rata sebesar 32,77\%. Tabel \ref{tb:PengujianPosisiBelakangAnalisaDeteksi} menunjukkan hasil pengujian dari setiap percobaan yang dilakukan analisa pengujian terhadap hasil deteksi.
 
@@ -896,7 +896,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 \end{figure}
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Pada Posisi Belakang}
+  \caption{Hasil deteksi pengujian pada posisi belakang}
   \label{tb:PengujianPosisiBelakangAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -928,7 +928,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa banyaknya langkah, jarak dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan model regresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 49,86\% dengan hasil eror rata-rata sebesar 50,14\%. Tabel \ref{tb:PengujianPosisiBelakangAnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Posisi Belakang dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian pada posisi belakang dengan Regresi Linear}
   \label{tb:PengujianPosisiBelakangAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -960,12 +960,12 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
   \hline
 \end{longtable}
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 51,04\% dengan hasil eror rata-rata sebesar 48,96\%. Tabel \ref{tb:PengujianPosisiBelakangAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 51,04\% dengan hasil eror rata-rata sebesar 48,96\%. Tabel \ref{tb:PengujianPosisiBelakangAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
-Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langkah, prediksi kalori dengan regresi dan prediksi kalori dengan perhitungan rumus didapatkan hasil dalam nilai akurasi rata-rata dan eror rata-rata dari setiap pengujian. Pada pengujian deteksi langkah didapatkan akurasi rata-rata lebih baik pada posisi kamera serong dengan nilai akurasi rata-rata sebesar 86,80\% sedangkan pada posisi kamera belakang didapat nilai akurasi rata-rata sebesar 67,23\%. Pada pengujian prediksi kalori dengan regresi didapatkan akurasi rata-rata lebih baik pada posisi kamera serong dengan nilai akurasi rata-rata sebesar 70,18\% sedangkan pada posisi kamera belakang didapat nilai akurasi rata-rata sebesar 49,86\%. Pada pengujian prediksi kalori dengan perhitungan rumus didapatkan akurasi rata-rata lebih baik pada posisi kamera serong cm dengan nilai akurasi rata-rata sebesar 53,20\% sedangkan pada posisi kamera belakang didapat nilai akurasi rata-rata sebesar 51,04\%. Gambar \ref{fig:DiagramPosisi} menunjukkan diagram perbandingan performa pengujian dengan nilai akurasi rata-rata berdasarkan posisi kamera.
+Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langkah, prediksi kalori dengan regresi dan prediksi kalori dengan perhitungan MET didapatkan hasil dalam nilai akurasi rata-rata dan eror rata-rata dari setiap pengujian. Pada pengujian deteksi langkah didapatkan akurasi rata-rata lebih baik pada posisi kamera serong dengan nilai akurasi rata-rata sebesar 86,80\% sedangkan pada posisi kamera belakang didapat nilai akurasi rata-rata sebesar 67,23\%. Pada pengujian prediksi kalori dengan regresi didapatkan akurasi rata-rata lebih baik pada posisi kamera serong dengan nilai akurasi rata-rata sebesar 70,18\% sedangkan pada posisi kamera belakang didapat nilai akurasi rata-rata sebesar 49,86\%. Pada pengujian prediksi kalori dengan perhitungan MET didapatkan akurasi rata-rata lebih baik pada posisi kamera serong cm dengan nilai akurasi rata-rata sebesar 53,20\% sedangkan pada posisi kamera belakang didapat nilai akurasi rata-rata sebesar 51,04\%. Gambar \ref{fig:DiagramPosisi} menunjukkan diagram perbandingan performa pengujian dengan nilai akurasi rata-rata berdasarkan posisi kamera.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Posisi Belakang dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian pada posisi belakang dengan Perhitungan MET}
   \label{tb:PengujianPosisiBelakangAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1006,12 +1006,12 @@ Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langk
 \section{Pengujian Performa Berdasarkan Intensitas Cahaya}
 \label{sec:PengujianIntensitas}
 
-Pada pengujian ini dilakukan deteksi dan prediksi kalori dengan menggunakan skenario berdasarkan intensitas cahaya yang berbeda-beda. Skenario pertama yang dilakukan adalah pengujian pada intensitas cahaya rendah, cahaya rendah yang digunakan berdasarkan pada nilai rata-rata kecerahan yang rendah pada setiap frame yang digunakan pada video percobaan. Skenario kedua yang dilakukan adalah pengujian pada intensitas cahaya tinggi, cahaya tinggi yang digunakan berdasarkan pada nilai rata-rata kecerahan yang tinggi pada setiap frame yang digunakan pada video percobaan. Video pengujian yang digunakan dengan banyak percobaan sebanyak 9 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 10 dan 20 kcal. 
+Pada pengujian ini dilakukan deteksi dan prediksi kalori dengan menggunakan skenario berdasarkan intensitas cahaya yang berbeda-beda. Skenario pertama yang dilakukan adalah pengujian pada intensitas cahaya rendah, cahaya rendah yang digunakan berdasarkan pada nilai rata-rata kecerahan yang rendah pada setiap frame yang digunakan pada video percobaan. Skenario kedua yang dilakukan adalah pengujian pada intensitas cahaya tinggi, cahaya tinggi yang digunakan berdasarkan pada nilai rata-rata kecerahan yang tinggi pada setiap frame yang digunakan pada video percobaan. Video pengujian yang digunakan dengan banyak percobaan sebanyak 9 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 3 km/jam, 9 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 10 dan 20 kkal. 
 
 \subsection{Pengujian Pada Intensitas Cahaya Rendah}
 \label{subsec:PengujianIntensitasRendah}
 
-Pengujian dilakukan dengan melakukan pengujian performa sistem pada intensitas cahaya rendah. Contoh cuplikan gambar yang memperlihatkan kondisi intensitas cahaya rendah dapat dilihat pada Gambar \ref{fig:PengujianIntensitasRendah}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianIntensitasRendah2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Pengujian dilakukan dengan melakukan pengujian performa sistem pada intensitas cahaya rendah. Contoh cuplikan gambar yang memperlihatkan kondisi intensitas cahaya rendah dapat dilihat pada Gambar \ref{fig:PengujianIntensitasRendah}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianIntensitasRendah2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 \begin{figure}[H]
   \centering
@@ -1030,7 +1030,7 @@ Pengujian dilakukan dengan melakukan pengujian performa sistem pada intensitas c
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video. Dengan data video sebagai banyaknya percobaan dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Data langkah merupakan data sebagai data sebenarnya atau \emph{actual score} dengan melakukan perhitungan pada data video dan data deteksi langkah sebagai data hasil deteksi langkah yang didapatkan berdasarkan proses deteksi pada sistem. Perbandingan hasil deteksi dengan data sebenarnya dicantumkan pada data eror dan dilakukan persentase berdasarkan data sebenarnya. Hasil persentase eror mendapatkan hasil persentase akurasi yang juga didapatkan berdasarkan persentase eror. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 90,69\% dengan hasil eror rata-rata sebesar 9,31\%. Tabel \ref{tb:PengujianIntensitasRendahAnalisaDeteksi} menunjukkan hasil pengujian dari setiap percobaan yang dilakukan analisa pengujian terhadap hasil deteksi.
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Pada Intensitas Cahaya Rendah}
+  \caption{Hasil deteksi pengujian pada intensitas cahaya rendah}
   \label{tb:PengujianIntensitasRendahAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1063,10 +1063,10 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
 
 
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 58,08\% dengan hasil eror rata-rata sebesar 41,92\%. Tabel \ref{tb:PengujianIntensitasRendahAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 58,08\% dengan hasil eror rata-rata sebesar 41,92\%. Tabel \ref{tb:PengujianIntensitasRendahAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Intensitas Cahaya Rendah dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian pada intensitas cahaya rendah dengan Regresi Linear}
   \label{tb:PengujianIntensitasRendahAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1099,7 +1099,7 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
 \end{longtable}
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Intensitas Cahaya Rendah dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian pada intensitas cahaya rendah dengan Perhitungan MET}
   \label{tb:PengujianIntensitasRendahAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1134,7 +1134,7 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
 \subsection{Pengujian Pada Intensitas Cahaya Tinggi}
 \label{subsec:PengujianIntensitasTinggi}
 
-Pengujian dilakukan dengan melakukan pengujian performa sistem pada intensitas cahaya tinggi. Contoh cuplikan gambar yang memperlihatkan kondisi intensitas cahaya tinggi dapat dilihat pada Gambar \ref{fig:PengujianIntensitasTinggi}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianIntensitasTinggi2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Pengujian dilakukan dengan melakukan pengujian performa sistem pada intensitas cahaya tinggi. Contoh cuplikan gambar yang memperlihatkan kondisi intensitas cahaya tinggi dapat dilihat pada Gambar \ref{fig:PengujianIntensitasTinggi}. Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianIntensitasTinggi2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video. Dengan data video sebagai banyaknya percobaan dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Data langkah merupakan data sebagai data sebenarnya atau \emph{actual score} dengan melakukan perhitungan pada data video dan data deteksi langkah sebagai data hasil deteksi langkah yang didapatkan berdasarkan proses deteksi pada sistem. Perbandingan hasil deteksi dengan data sebenarnya dicantumkan pada data eror dan dilakukan persentase berdasarkan data sebenarnya. Hasil persentase eror mendapatkan hasil persentase akurasi yang juga didapatkan berdasarkan persentase eror. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 95,54\% dengan hasil eror rata-rata sebesar 4,46\%. Tabel \ref{tb:PengujianIntensitasTinggiAnalisaDeteksi} menunjukkan hasil pengujian dari setiap percobaan yang dilakukan analisa pengujian terhadap hasil deteksi.
 
@@ -1157,7 +1157,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa banyaknya langkah, jarak dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan model re- 
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Pada Intensitas Cahaya Tinggi}
+  \caption{Hasil deteksi pengujian pada intensitas cahaya tinggi}
   \label{tb:PengujianIntensitasTinggiAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1191,7 +1191,7 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
 gresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 73,61\% dengan hasil eror rata-rata sebesar 26,39\%. Tabel \ref{tb:PengujianIntensitasTinggiAnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Intensitas Cahaya Tinggi dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian pada intensitas cahaya tinggi dengan Regresi Linear}
   \label{tb:PengujianIntensitasTinggiAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1223,10 +1223,10 @@ gresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. A
   \hline
 \end{longtable}
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 68,92\% dengan hasil eror rata-rata sebesar 31,08\%. Tabel \ref{tb:PengujianIntensitasTinggiAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 68,92\% dengan hasil eror rata-rata sebesar 31,08\%. Tabel \ref{tb:PengujianIntensitasTinggiAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Pada Intensitas Cahaya Tinggi dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian pada intensitas cahaya tinggi dengan Perhitungan MET}
   \label{tb:PengujianIntensitasTinggiAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1257,14 +1257,14 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
   \hline
 \end{longtable}
 
-Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langkah, prediksi kalori dengan regresi dan prediksi kalori dengan perhitungan rumus didapatkan hasil performa dalam nilai akurasi rata-rata dan eror rata-rata dari setiap pengujian. Pada pengujian deteksi langkah didapatkan akurasi rata-rata lebih baik pada intensitas cahaya tinggi dengan nilai akurasi rata-rata sebesar 95,54\% sedangkan pada intensitas cahaya rendah didapat nilai akurasi rata-rata sebesar 90,69\%. Pada pengujian prediksi kalori dengan regresi didapatkan akurasi rata-rata lebih baik pada intensitas cahaya rendah dengan nilai akurasi rata-rata sebesar 73,68\% sedangkan pada intensitas cahaya tinggi didapat nilai akurasi rata-rata sebesar 73,61\%. Pada pengujian prediksi kalori dengan perhitungan rumus didapatkan akurasi rata-rata lebih baik pada intensitas cahaya tinggi cm dengan nilai akurasi rata-rata sebesar 68,92\% sedangkan pada intensitas cahaya rendah didapat nilai akurasi rata-rata sebesar 58,08\%. Gambar \ref{fig:DiagramPosisi} menunjukkan diagram perbandingan performa pengujian dengan nilai akurasi rata-rata berdasarkan intensitas cahaya.
+Berdasarkan pengujian yang telah dilakukan terhadap hasil performa deteksi langkah, prediksi kalori dengan regresi dan prediksi kalori dengan perhitungan MET didapatkan hasil performa dalam nilai akurasi rata-rata dan eror rata-rata dari setiap pengujian. Pada pengujian deteksi langkah didapatkan akurasi rata-rata lebih baik pada intensitas cahaya tinggi dengan nilai akurasi rata-rata sebesar 95,54\% sedangkan pada intensitas cahaya rendah didapat nilai akurasi rata-rata sebesar 90,69\%. Pada pengujian prediksi kalori dengan regresi didapatkan akurasi rata-rata lebih baik pada intensitas cahaya rendah dengan nilai akurasi rata-rata sebesar 73,68\% sedangkan pada intensitas cahaya tinggi didapat nilai akurasi rata-rata sebesar 73,61\%. Pada pengujian prediksi kalori dengan perhitungan MET didapatkan akurasi rata-rata lebih baik pada intensitas cahaya tinggi cm dengan nilai akurasi rata-rata sebesar 68,92\% sedangkan pada intensitas cahaya rendah didapat nilai akurasi rata-rata sebesar 58,08\%. Gambar \ref{fig:DiagramPosisi} menunjukkan diagram perbandingan performa pengujian dengan nilai akurasi rata-rata berdasarkan intensitas cahaya.
 
 
 
 \section{Pengujian Sistem secara \emph{Real Time}}
 \label{sec:PengujianRealTime}
 
-Pengujian dilakukan dengan melakukan pengujian sistem secara \emph{real Time} dengan melakukan proses sistem secara langsung pada objek yang dideteksi. Proses pengujian dilakukan dengan mengambil data video yang bersumber pada kamera yang akan langsung diproses pada perangkat yang digunakan untuk proses sistem. Data video yang digunakan akan digunakan sebagai data video percobaan dan data pengujian secara bersamaan. Percobaan pada pengujian yang dilakukan sebanyak 6 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 4 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 5 dan 20 kcal.
+Pengujian dilakukan dengan melakukan pengujian sistem secara \emph{real time} dengan melakukan proses sistem secara langsung pada objek yang dideteksi. Proses pengujian dilakukan dengan mengambil data video yang bersumber pada kamera yang akan langsung diproses pada perangkat yang digunakan untuk proses sistem. Data video yang digunakan akan digunakan sebagai data video percobaan dan data pengujian secara bersamaan. Percobaan pada pengujian yang dilakukan sebanyak 6 kali dengan menggunakan variasi kecepatan dan hasil kalori yang didapatkan. Variasi kecepatan yang digunakan adalah 4 km/jam dan 12 km/jam. Kemudian variasi hasil kalori yang didapatkan adalah 5 dan 20 kkal.
 
 \begin{figure}[H]
   \centering
@@ -1273,19 +1273,19 @@ Pengujian dilakukan dengan melakukan pengujian sistem secara \emph{real Time} de
   \label{fig:DiagramPosisi}
 \end{figure}
 
-Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihaat pada Gambar \ref{fig:PengujianRealTime2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
+Data percobaan yang digunakan dalam pengujian ini dilakukan proses deteksi dengan sistem yang dibuat untuk dapat melakukan proses estimasi dan deteksi langkah maupun waktu. Proses deteksi yang dilakukan pada data percobaan dapat dilihat pada Gambar \ref{fig:PengujianRealTime2}. Pengujian dilanjutkan dengan melakukan proses prediksi dari hasil deteksi.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{gambar/realtimedeteksi.png}
-  \caption{Hasil deteksi pengujian secara \emph{real time}}
+  \caption{Hasil deteksi pengujian secara \emph{Real Time}}
   \label{fig:PengujianRealTime2}
 \end{figure}
 
 Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan juga data sebenarnya berdasarkan hasil perhitungan yang dilakukan terhadap data video. Dengan data video sebagai banyaknya percobaan dilakukan analisa terkait perbandingan hasil yang didapat antara data hasil deteksi dan data perhitungan sebenarnya. Data langkah merupakan data sebagai data sebenarnya atau \emph{actual score} dengan melakukan perhitungan pada data video dan data deteksi langkah sebagai data hasil deteksi langkah yang didapatkan berdasarkan proses deteksi pada sistem. Perbandingan hasil deteksi dengan data sebenarnya dicantumkan pada data eror dan dilakukan persentase berdasarkan data sebenarnya. Hasil persentase eror mendapatkan hasil persentase akurasi yang juga didapatkan berdasarkan persentase eror. Hasil analisa yang didapat dengan melakukan analisa pengujian hasil deteksi didapatkan hasil akurasi rata-rata sebesar 81,35\% dengan hasil eror rata-rata sebesar 18,65\%. Tabel \ref{tb:PengujianRealTimeAnalisaDeteksi} menunjukkan hasil pengujian dari setiap percobaan yang dilakukan analisa pengujian terhadap hasil deteksi.
 
 \begin{longtable}{|c|c|c|c|c|c|}
-  \caption{Hasil Deteksi Pengujian Sistem secara \emph{Real Time}}
+  \caption{Hasil deteksi pengujian sistem secara \emph{Real Time}}
   \label{tb:PengujianRealTimeAnalisaDeteksi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1311,7 +1311,7 @@ Pengujian dilakukan setelah didapatkan data hasil deteksi yang telah didapat dan
 Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa banyaknya langkah, jarak dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan model regresi linear yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 64,05\% dengan hasil eror rata-rata sebesar 35,95\%. Tabel \ref{tb:PengujianRealTimeAnalisaPrediksiRegresi} menunjukkan hasil analisa pengujian dari setiap percobaan yang dilakukan analisa prediksi kalori dengan regresi linear.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Sistem secara \emph{Real Time} dengan Regresi Linear}
+  \caption{Hasil prediksi pengujian sistem secara \emph{Real Time} dengan Regresi Linear}
   \label{tb:PengujianRealTimeAnalisaPrediksiRegresi}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -1337,10 +1337,10 @@ Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat.
   \hline
 \end{longtable}
 
-Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan rumus berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 46,63\% dengan hasil eror rata-rata sebesar 53,37\%. Tabel \ref{tb:PengujianRealTimeAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan rumus.
+Pada pengujian prediksi kalori dilakukan berdasarkan hasil deteksi yang didapat. Hasil deteksi berupa kecepatan, MET dan waktu tempuh dari data video yang digunakan. Data hasil deteksi akan diilakukan untuk proses prediksi kalori dengan menggunakan perhitungan MET berdasarkan MET yang sudah didapatkan dan menghasilkan data pada prediksi kalori. Analisa pengujian hasil prediksi kalori dilakukan dengan melakukan perbandingan data prediksi kalori dari sistem yang digunakan dengan data kalori treadmill sebagai data sebenarnya atau data \emph{actual score}. Perbandingan hasil prediksi kalori dengan kalori treadmill didapatkan data eror yang kemudian dilakukan perhitungan persentase berdasarkan data sebenarnya pada data kalori treadmill. Proses analisa pengujian dilakukan terhadap seluruh data video pada data percobaan. Hasil analisa yang didapat dengan melakukan analisa pengujian prediksi kalori didapatkan hasil akurasi rata-rata sebesar 46,63\% dengan hasil eror rata-rata sebesar 53,37\%. Tabel \ref{tb:PengujianRealTimeAnalisaPrediksiPerhitungan} menunjukkan hasil analisa pengujian dari prediksi kalori dengan perhitungan MET.
 
 \begin{longtable}{|c|c|c|c|c|c|c|c|}
-  \caption{Hasil Prediksi Pengujian Sistem secara \emph{Real Time} dengan Perhitungan Rumus}
+  \caption{Hasil prediksi pengujian sistem secara \emph{Real Time} dengan Perhitungan MET}
   \label{tb:PengujianRealTimeAnalisaPrediksiPerhitungan}                                   \\
   \hline
   \rowcolor[HTML]{C0C0C0}

@@ -6,11 +6,11 @@ Penelitian ini dilaksanakan sesuai sistem berikut dengan implementasinya. Desain
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.215]{gambar/blok diagram metodologi5.png}
-  \caption{Blok Diagram Kerja Sistem}
+  \caption{Blok diagram kerja sistem}
   \label{fig:BlokDiagram}
 \end{figure}
 
-Berdasarkan Gambar \ref{fig:BlokDiagram} dalam menjelaskan alur kerja sistem yang digunakan dimulai dengan \emph{input} yang berupa data video menghasilkan beberapa data video yang akan digunakan dan diproses dengan melakukan estimasi pose dan klasifikasi langkah. Pada estimasi pose data video akan diestimasi pose untuk didapatkan hasil berupa dataset yang telah diekstrak fitur untuk dilakukan klasifikasi langkah. Klasifikasi langkah dilakukan dengan menggunakan model dari dataset yang dibuat dengan menggunakan arsitektur CNN untuk mendeteksi langkah. Hasil yang didapat dari proses klasifikasi langkah berupa banyak langkah dan waktu tempuh untuk dilakukan proses prediksi kalori. Prediksi kalori dilakukan dengan dua cara yaitu regresi dan perhitungan rumus. Hasil \emph{output} dari sistem ini adalah hasil prediksi kalori yang terbakar dari data video yang digunakan.
+Berdasarkan Gambar \ref{fig:BlokDiagram} dalam menjelaskan alur kerja sistem yang digunakan dimulai dengan \emph{input} yang berupa data video menghasilkan beberapa data video yang akan digunakan dan diproses dengan melakukan estimasi pose kaki dan klasifikasi langkah. Pada estimasi pose kaki, data video akan diestimasi pose untuk didapatkan hasil berupa dataset yang telah diekstrak fitur untuk dilakukan klasifikasi langkah. Klasifikasi langkah dilakukan dengan menggunakan model dari dataset yang dibuat dengan menggunakan arsitektur CNN untuk mendeteksi langkah. Hasil yang didapat dari proses klasifikasi langkah berupa banyak langkah dan waktu tempuh untuk dilakukan proses prediksi kalori. Prediksi kalori dilakukan dengan dua cara yaitu regresi dan perhitungan MET. Hasil \emph{output} dari sistem ini adalah hasil prediksi kalori yang terbakar dari data video yang digunakan.
 
 \section{Data Video}
 \label{sec:PengambilanData}
@@ -19,31 +19,37 @@ Pada penelitian ini digunakan data berupa data video yang dilakukan pengambilan 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.8]{gambar/pengambilan data.png}
+  \includegraphics[scale=0.7]{gambar/pengambilan data.png}
   \caption{Proses pengambilan data}
   \label{fig:DataVideo}
 \end{figure}
 
 Data video yang digunakan pada penelitian ini berdasarkan pengambilan data video yang telah dilakukan. Pengambilan data dilakukan pada aktivitas yang dilakukan pada treadmill. Variasi yang digunakan pada data video yang digunakan berdasarkan variasi kecepatan dan hasil kalori yang terbakar. Tabel \ref{tb:DatasetVideo} menunjukkan data video berdasarkan variasi yang digunakan.
 
-\begin{longtable}{|c|c|c|}
+\begin{longtable}{|c|c|c|c|c|c|}
   \caption{Data video berdasarkan pengambilan data}
   \label{tb:DatasetVideo}  \\
   \hline
   \rowcolor[HTML]{C0C0C0}
-  \textbf{Percobaan} & \textbf{Kecepatan} & \textbf{Kalori Terbakar} \\
+  \textbf{Percobaan} & \textbf{Kecepatan} & \textbf{Kalori} & \textbf{Percobaan} & \textbf{Kecepatan} & \textbf{Kalori} \\
   \hline
-  1     & 3     & 10   \\
+  1     & 3     & 10   & 10     & 9      & 20\\
   \hline
-  2     & 6     & 10   \\
+  2     & 6     & 10   & 11     & 9      & 20\\
   \hline
-  3     & 9     & 20   \\
+  3     & 9     & 20   & 12     & 9      & 20\\
   \hline
-  4     & 12    & 20   \\
+  4     & 12    & 20   & 13     & 12     & 20\\
   \hline
-  5     & 8     & 20   \\
+  5     & 8     & 20   & 14     & 12     & 20\\
   \hline
-  7     & 12    & 20   \\
+  6     & 12    & 20   & 15     & 12     & 20\\
+  \hline
+  7     & 3     & 10   & 16     & 4      & 5\\
+  \hline
+  8     & 3     & 10   & 17     & 12     & 10\\
+  \hline
+  9     & 3     & 10   &        &        & \\
   \hline
 \end{longtable}
 
@@ -51,7 +57,7 @@ Data video yang digunakan pada penelitian ini berdasarkan pengambilan data video
 \section{Estimasi Pose Kaki}
 \label{sec:EstimasiPose}
 
-Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan estimasi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas \emph{jogging} pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan estimasi pose. Estimasi pose menggunakan model Estimasi yang sudah ada yaitu Mediapipe. Hasil estimasi dari model Mediapipe berupa kerangka yang menyesuaikan bentuk tubuh yang diestimasi dari data video yang dimiliki. Hasil estimasi pose yang didapatkan menggunakan Mediapipe terdapat pada Gambar \ref{fig:posemediapipe}
+Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia menggunakan Python dengan \emph{library} OpenCV yaitu MediaPipe. Metode yang digunakan pada MediaPipe menggunakan estimasi pose untuk mendeteksi postur tubuh. Segementasi dilakukan dengan cara peraga melakukan aktivitas \emph{jogging} pada treadmill dengan menentukan pose melangkah ataupun berlari sesuai dengan olahraga yang akan diteliti. Data yang diproses merupakan data yang telah dilakukan perekaman pada proses pengambilan data dengan menggunakan video yang telah direkam sebelumnya menggunakan alat perekam. Hasil video yang memperlihatkan seseorang dalam keadaan berolahraga pada treadmill melakukan aktivitas berjalan atau berlari akan diproses dalam tahap ini untuk dilakukan estimasi pose. Estimasi pose menggunakan model Estimasi yang sudah ada yaitu MediaPipe. Hasil estimasi dari model MediaPipe berupa kerangka yang menyesuaikan bentuk tubuh yang diestimasi dari data video yang dimiliki. Hasil estimasi pose yang didapatkan menggunakan MediaPipe terdapat pada Gambar \ref{fig:posemediapipe}
 
 \begin{figure}[H]
   \centering
@@ -60,10 +66,10 @@ Estimasi dari hasil citra untuk dapat mengetahui bentuk postur tubuh manusia men
   \label{fig:posemediapipe}
 \end{figure}
 
-Dalam penelitian ini yang berfokuskan pada proses deteksi langkah pada tubuh bagian bawah seperti kaki menyebabkan perlunya pemodelan ulang dan melakukan proses modifikasi pada hasil estimasi model Mediapipe. Dengan begitu proses modifikasi yang dilakukan adalah dengan mengambil kerangka bagian kaki dengan memberikan warna yang berbeda untuk hasil estimasi kaki bagian kiri dan kanan. Modifikasi dilakukan dengan mengambil beberapa nilai poin \emph{landmark} pada mediapipe. Bagian yang diambil berdasarkan data seluruh \emph{landmark} dari mediapipe yang hanya berfokus pada bagian kaki. Tabel \ref{tb:landmarkkaki} menunjukkan nomor \emph{landmark} pada mediapipe yang digunakan untuk modifikasi pada estimasi pose kaki.
+Dalam penelitian ini yang berfokuskan pada proses deteksi langkah pada tubuh bagian bawah seperti kaki menyebabkan perlunya pemodelan ulang dan melakukan proses modifikasi pada hasil estimasi model MediaPipe. Dengan begitu proses modifikasi yang dilakukan adalah dengan mengambil kerangka bagian kaki dengan memberikan warna yang berbeda untuk hasil estimasi kaki bagian kiri dan kanan. Modifikasi dilakukan dengan mengambil beberapa nilai poin \emph{landmark} pada MediaPipe. Bagian yang diambil berdasarkan data seluruh \emph{landmark} dari MediaPipe yang hanya berfokus pada bagian kaki. Tabel \ref{tb:landmarkkaki} menunjukkan nomor \emph{landmark} pada MediaPipe yang digunakan untuk modifikasi pada estimasi pose kaki.
 
 \begin{longtable}{|c|c|}
-  \caption{\emph{Landmark} mediapipe yang digunakan untuk estimasi pose kaki}
+  \caption{\emph{Landmark} MediaPipe yang digunakan untuk estimasi pose kaki}
   \label{tb:landmarkkaki}  \\
   \hline
   \rowcolor[HTML]{C0C0C0}
@@ -101,7 +107,7 @@ proses \emph{training}. Setiap data video yang akan digunakan dalam proses ini a
 \subsection{Ekstrak Fitur}
 \label{subsec:AugmentasiData}
 
-Pada proses estimasi pose didapat hasil estimasi pada data video berupa kerangka pada kaki yang menyesuaikan bentuk tubuh yang sedang ditampilkan. Setelah dapat diestimasi dengan baik menggunakan model Mediapipe dan dimodifikasi untuk dapat terfokus pada bagian kaki, dilakukan proses ekstrak fitur. Ekstrak fitur dilakukan sebagai proses untuk mengubah atau memodifikasi gambar agar dapat dengan mudah diproses dalam tahap \emph{training}. Proses ini juga akan dapat membantu dalam meningkatkan akurasi dari model yang akan digunakan nanti karena data telah diproses dan dimodifikasi agar memiliki data-data tambahan yang akan berguna dalam tahap \emph{training}. Data dari proses estimasi pose akan dilakukan proses pemindahan hasil estimasi kerangka ke dalam gambar baru dengan penyesuaian yang akan digeneralisasikan terhadap semua data yang didapat. 
+Pada proses estimasi pose didapat hasil estimasi pada data video berupa kerangka pada kaki yang menyesuaikan bentuk tubuh yang sedang ditampilkan. Setelah dapat diestimasi dengan baik menggunakan model MediaPipe dan dimodifikasi untuk dapat terfokus pada bagian kaki, dilakukan proses ekstrak fitur. Ekstrak fitur dilakukan sebagai proses untuk mengubah atau memodifikasi gambar agar dapat dengan mudah diproses dalam tahap \emph{training}. Proses ini juga akan dapat membantu dalam meningkatkan akurasi dari model yang akan digunakan nanti karena data telah diproses dan dimodifikasi agar memiliki data-data tambahan yang akan berguna dalam tahap \emph{training}. Data dari proses estimasi pose akan dilakukan proses pemindahan hasil estimasi kerangka ke dalam gambar baru dengan penyesuaian yang akan digeneralisasikan terhadap semua data yang didapat. 
 
 Proses dimulai dengan menentukan posisi kerangka dari data video asli untuk kemudian akan dipindahkan ke gambar baru. Dalam melakukan menentukan posisi kerangka dilakukan dengan estimasi menggunakan bingkai yang menyesuaikan posisi keseluruhan kerangka yang dapat dilihat pada Gambar \ref{fig:PreProcessing1}. Setelah bingkai menyesuaikan posisi kerangka maka akan dipindahkan pada gambar dengan latar belakang hitam yang berisikan hanya kerangka dari hasil estimasi sesuai dengan bingkai. Proses melakukan pemindahan hasil estimasi ke dalam gambar dengan latar belakang hitam dapat ditunjukan pada gambar Gambar \ref{fig:PreProcessing2}. Kemudian gambar akan dilakukan generalisasi terhadap ukuran yang berisikan hanya hasil estimasi sesuai bingkai untuk mempermudah dalam proses selanjutnya dengan membuat ukuran gambar seragam dalam bentuk persegi.
 
@@ -127,14 +133,14 @@ Hasil dari proses ekstrak fitur dengan melakukan pemindahan hasil estimasi ke da
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.8]{gambar/dataset kanan.png}
-  \caption{Hasil \emph{preprocessing} untuk kelas kanan}
+  \caption{Hasil \emph{Preprocessing} untuk kelas kanan}
   \label{fig:KelasKanan}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.8]{gambar/dataset kiri.png}
-  \caption{Hasil \emph{preprocessing} untuk kelas kiri}
+  \caption{Hasil \emph{Preprocessing} untuk kelas kiri}
   \label{fig:KelasKiri}
 \end{figure}
 
@@ -157,7 +163,7 @@ Hasil dari proses ekstrak fitur dengan melakukan pemindahan hasil estimasi ke da
 \subsection{Dataset}
 \label{subsec:Dataset}
 
-Dataset yang digunakan pada penelitian ini berdasarkan hasil dari data video yang dimiliki dengan mengambil sampel pada proses pengambilan data. Kemudian dilakukan proses \emph{preprocessing} dengan melakukan ekstraksi gambar, augmentasi data, dan pelabelan objek yang akan disimpan keseluruhan data yang dimiliki berdasarkan kelas untuk menjadi dataset yang akan digunakan pada penelitian ini. Dataset yang telah dimiliki pada penelitian ini berupa data gambar berisikan bentuk kerangka dari hasil deteksi dengan model Mediapipe yang telah dimodifikasi dan digeneralisasi untuk ukuran gambar. Hasil dari dataset yang akan digunakan untuk dataset kelas kanan ditunjukkan pada Gambar \ref{fig:DatasetKanan} dan untuk dataset kelas kiri ditunjukkan pada Gambar \ref{fig:DatasetKiri}.
+Dataset yang digunakan pada penelitian ini berdasarkan hasil dari data video yang dimiliki dengan mengambil sampel pada proses pengambilan data. Kemudian dilakukan proses \emph{preprocessing} dengan melakukan ekstraksi gambar, augmentasi data, dan pelabelan objek yang akan disimpan keseluruhan data yang dimiliki berdasarkan kelas untuk menjadi dataset yang akan digunakan pada penelitian ini. Dataset yang telah dimiliki pada penelitian ini berupa data gambar berisikan bentuk kerangka dari hasil deteksi dengan model MediaPipe yang telah dimodifikasi dan digeneralisasi untuk ukuran gambar. Hasil dari dataset yang akan digunakan untuk dataset kelas kanan ditunjukkan pada Gambar \ref{fig:DatasetKanan} dan untuk dataset kelas kiri ditunjukkan pada Gambar \ref{fig:DatasetKiri}.
 
 \begin{figure}[H]
   \centering
@@ -226,7 +232,7 @@ Waktu tempuh saat proses deteksi merupakan nilai variabel kedua yang akan diguna
 \section{Prediksi Kalori}
 \label{sec:PrediksiKalori}
 
-Prediksi kalori dilakukn dengan dua metode, yaitu menggunakan metode regresi linear dan menggunakan perhitungan rumus EC (Exercise Calories) berdasarkan satuan ukuran MET (Metabolic Equivalent). Kedua metode prediksi ini digunakan sebagai pembanding dalam melakukan analisa terhadap hasil yang didapatkan dari metode prediksi menggunakan metode regresi linear dengan perhitungan MET. Data yang digunakanan dalam proses prediksi kalori diambil berdasarkan hasil klasifikasi dan hasil deteksi yang telah dilakukan sebelumnya. Hasil deteksi berupa banyaknya langkah dan waktu tempuh digunakan untuk proses prediksi kalori baik dengan metode regresi linear maupun metode perhitungan rumus.
+Prediksi kalori dilakukn dengan dua metode, yaitu menggunakan metode regresi linear dan menggunakan perhitungan rumus EC (Exercise Calories) berdasarkan satuan ukuran MET (Metabolic Equivalent). Kedua metode prediksi ini digunakan sebagai pembanding dalam melakukan analisa terhadap hasil yang didapatkan dari metode prediksi menggunakan metode regresi linear dengan perhitungan MET. Data yang digunakanan dalam proses prediksi kalori diambil berdasarkan hasil klasifikasi dan hasil deteksi yang telah dilakukan sebelumnya. Hasil deteksi berupa banyaknya langkah dan waktu tempuh digunakan untuk proses prediksi kalori baik dengan metode regresi linear maupun metode perhitungan MET.
 
 \subsection{Regresi Linear}
 \label{subsec:PrediksiRegresi}
@@ -313,7 +319,7 @@ Data yang telah dilakukan pengumpulan data pada alat treadmill kemudian dilakuka
   \hline
 \end{longtable}
 
-Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model regresi linear dari dataset yang telah dibuat untuk dapat melakukan prediksi kalori terbakar. Model regresi linear dibuat berdasarkan data berupa waktu dalam detik, jarak tempuh dalam meter dan kalori yang terbakar dalam kcal berdasarkan data pada treadmill yang sudah dilakukan pengambilan data dan pengolahan data. Pada model regresi linear dibutuhkan dua variabel yaitu variabel independen dan variabel dependen. Dataset yang telah didapat dilakukan pembagian berdasarkan variabel yang diperlukan berdasarkan model regresi yang diinginkan. Variabel independen dari dataset mencakup data mengenai waktu dan jarak tempuh, sedangkah variabel dependen dari dataset mencakup data kalori terbakar. Berdasarkan pembagian dataset kalori sesuai variabel regresi yang dibuat kemudian akan dilakukan pembuatan model regresi dalam persamaan regresi linear. Tabel \ref{tb:VariabelPrediksiKalori} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan. 
+Hasil pengolahan data pada dataset dilanjutkan dengan melakukan pembuatan model regresi linear dari dataset yang telah dibuat untuk dapat melakukan prediksi kalori terbakar. Model regresi linear dibuat berdasarkan data berupa waktu dalam detik, jarak tempuh dalam meter dan kalori yang terbakar dalam kkal berdasarkan data pada treadmill yang sudah dilakukan pengambilan data dan pengolahan data. Pada model regresi linear dibutuhkan dua variabel yaitu variabel independen dan variabel dependen. Dataset yang telah didapat dilakukan pembagian berdasarkan variabel yang diperlukan berdasarkan model regresi yang diinginkan. Variabel independen dari dataset mencakup data mengenai waktu dan jarak tempuh, sedangkah variabel dependen dari dataset mencakup data kalori terbakar. Berdasarkan pembagian dataset kalori sesuai variabel regresi yang dibuat kemudian akan dilakukan pembuatan model regresi dalam persamaan regresi linear. Tabel \ref{tb:VariabelPrediksiKalori} menunjukkan pembagian dataset berdasarkan variabel untuk model regresi yang akan dilakukan. 
 
 
 
@@ -376,7 +382,7 @@ Setelah melakukan visualisasi terhadap data yang akan digunakan dalam melakukan 
   Kalori \; Terbakar = - \; 0.00030418 \times Waktu + 0.0704 \times Jarak - 0.06703071381901893 \; kkal
 \end{equation}
 
-Persamaan dari model regresi yang didapat digunakan untuk melakukan prediksi kalori yang terbakar setelah mendapatkan data hasil prediksi yang akan diproses untuk dapat menjadi data yang diperlukan pada persamaan model regresi prediksi kalori. Pada persmaan model regresi didapatkan untuk melakukan prediksi kalori memerlukan data waktu dan jarak tempuh sesuai dengan dataset kalori. Satuan yang didapat pada persamaan berupa kalori yang terbakar dengan satuan berupa kcal. Saat melakukan akuisisi data akan dilakukan proses untuk mendapatkan data yang dapat digunakan dalam persamaan model regresi linear ini. Hasil dari proses pada data akuisisi akan digunakan pada persamaan model regresi linear untuk nantinya akan mendapatkan hasil prediksi kalori dengan model regresi yang digunakan. Dataset yang telah dilakukan pembuatan persamaan model regresi dapat dilakukan pembuatan proyeksi model regresi berdasarkan data dan persamaan regresi linear yang digunakan. Hasil proyeksi dari model regresi linear untuk prediksi kalori terbakar yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiKalori}.
+Persamaan dari model regresi yang didapat digunakan untuk melakukan prediksi kalori yang terbakar setelah mendapatkan data hasil prediksi yang akan diproses untuk dapat menjadi data yang diperlukan pada persamaan model regresi prediksi kalori. Pada persmaan model regresi didapatkan untuk melakukan prediksi kalori memerlukan data waktu dan jarak tempuh sesuai dengan dataset kalori. Satuan yang didapat pada persamaan berupa kalori yang terbakar dengan satuan berupa kkal. Saat melakukan akuisisi data akan dilakukan proses untuk mendapatkan data yang dapat digunakan dalam persamaan model regresi linear ini. Hasil dari proses pada data akuisisi akan digunakan pada persamaan model regresi linear untuk nantinya akan mendapatkan hasil prediksi kalori dengan model regresi yang digunakan. Dataset yang telah dilakukan pembuatan persamaan model regresi dapat dilakukan pembuatan proyeksi model regresi berdasarkan data dan persamaan regresi linear yang digunakan. Hasil proyeksi dari model regresi linear untuk prediksi kalori terbakar yang didapatkan ditunjukkan pada Gambar \ref{fig:ModelRegresiKalori}.
 
 \begin{figure}[H]
   \centering
