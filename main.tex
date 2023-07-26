@@ -38,6 +38,7 @@
 \usepackage{multirow}
 \usepackage{fixltx2e}
 \usepackage{microtype}
+\usepackage{pdfpages}
 
 
 % Definisi untuk "Hati ini sengaja dikosongkan"
@@ -160,15 +161,19 @@
 \setlength{\parskip}{1ex}
 
 % Lembar pengesahan
-\input{lainnya/lembar-pengesahan.tex}
+% \input{lainnya/lembar-pengesahan-ttd.tex}
+\includepdf{lainnya/ttd/lembarpengesahanfit.pdf}
 \cleardoublepage
-\input{lainnya/lembar-pengesahan-en.tex}
+% \input{lainnya/lembar-pengesahan-en.tex}
+\includepdf{lainnya/ttd/lembarpengesahanfiteng.pdf}
 \cleardoublepage
 
 % Pernyataan keaslian
-\input{lainnya/pernyataan-keaslian.tex}
+% \input{lainnya/pernyataan-keaslian.tex}
+\includepdf{lainnya/ttd/orisinalitasfit.pdf}
 \cleardoublepage
-\input{lainnya/pernyataan-keaslian-en.tex}
+% \input{lainnya/pernyataan-keaslian-en.tex}
+\includepdf{lainnya/ttd/orisinalitasfiteng.pdf}
 \cleardoublepage
 
 % Nomor halaman pembuka dimulai dari sini
